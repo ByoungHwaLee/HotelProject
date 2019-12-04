@@ -22,6 +22,26 @@ seoYoung-seller <br>
 <br>
 ByoungHwa-hotel <br>
     -hotel insertForm/객실 추가 <br>
-
+호텔 테이블
+create table hotel (
+num number,
+selnum number,
+h_name varchar2(50),
+h_nation varchar2(50),
+h_address1 varchar2(50),
+h_address2 varchar2(50),
+h_type varchar2(50),
+h_phone varchar2(50),
+h_room_num  number,
+h_facilities varchar2(300),
+h_internet varchar2(50),
+h_animal varchar2(50),
+h_parking varchar2(50),
+h_smoke varchar2(50),
+h_language varchar2(50),
+h_image varchar2(300),
+h_hotel_url varchar2(50),
+h_comment varchar2(300)
+);
 
 
