@@ -36,6 +36,12 @@ public class SellerDao {
 		int cnt = sqlSessionTemplate.update(namespace + ".infoUpdate", seller);
 		return cnt;
 	}
+
+	public int deleteThis(int num) {
+		// TODO Auto-generated method stub
+		int cnt = sqlSessionTemplate.delete(namespace + ".deleteThis",num);
+		return cnt;
+	}
 	
 	
 	
