@@ -48,6 +48,7 @@ selInfo jsp
 	<input type="submit" value="수정하기">
 </form:form>
 <a href="<%=request.getContextPath() %>/selMain.sel">메인으로</a>
+<a href="<%=request.getContextPath() %>/selDelete.sel?num=${seller.num }">탈퇴하기</a>
 
 
 

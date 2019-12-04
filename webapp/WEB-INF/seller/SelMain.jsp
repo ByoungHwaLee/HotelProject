@@ -16,10 +16,10 @@ if(session.getAttribute("loginfo") == null){
 
 <a href="selInfo.sel">내정보 보기</a>
 <a href="hotelInsert.ho">내숙소 등록하기</a>
-<a href="#">내숙소 예약현황</a>
+<a href="hotelNow.ho">내숙소 예약현황</a>
 
 
-<%} %>
+<% } %>
 
 
 
