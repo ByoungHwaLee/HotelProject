@@ -1,9 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-  
+
 <mapper namespace="admin.model.Admin">
-
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from sellers
+		<if test="whatColumn == 'email'">
+		where email like #{keyword}
+		</if>		
+		<if test="whatColumn == 'phone'">
+		where phone like #{keyword}
+		</if>
+		<if test="whatColumn == 'comnumber'">
+		where comnumber like #{keyword}
+		</if>		
+	</select>
+	
+	<select id="getSelList" resultType="MySeller">
+		select * from sellers
+		<if test="whatColumn == 'email'">
+		where email like #{keyword}
+		</if>		
+		<if test="whatColumn == 'phone'">
+		where phone like #{keyword}
+		</if>
+		<if test="whatColumn == 'comnumber'">
+		where comnumber like #{keyword}
+		</if>	 
+	</select>
+	
+	
+	
 </mapper>
