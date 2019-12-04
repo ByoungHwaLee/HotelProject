@@ -44,4 +44,21 @@ h_hotel_url varchar2(50),
 h_comment varchar2(300)
 );
 
+룸테이블
+create sequence room_seq
+start with 0
+minvalue 0
+increment by 1
+nocache;
+
+
+create table rooms(
+num number primary key,
+r_type varchar2(20),
+r_price number,
+hname varchar2(20),
+r_person number,
+r_breakfast varchar2(10),
+r_stock number
+);
 
