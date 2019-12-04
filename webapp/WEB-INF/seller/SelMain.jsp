@@ -5,11 +5,11 @@ seller main jsp <br>
 
 
 <%
-String loginfo =(String) session.getAttribute("loginfo");
-if(loginfo == null){
+
+if(session.getAttribute("loginfo") == null){
 
 %>
-<p><a href="#">로그인</a></p> <p><a href="selSignup.sel">회원가입</a></p>
+<p><a href="selLogin.sel">로그인</a></p> <p><a href="selSignup.sel">회원가입</a></p>
 <% } else { %>
 Hi
 
