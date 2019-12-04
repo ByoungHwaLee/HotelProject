@@ -11,8 +11,9 @@ ahnwoo - admin<br>
 <br>
 seoHo - member<br>
     -12/03 signup, login<br>
-    -12/04 정보 수정, 삭제<br>
-<br>
+    -12/04 member - 정보 수정, 삭제<br>
+           관리자페이지 member 리스트, 수정, 삭제
+    <br>
 seoYoung-seller <br>
     -12/03 signup, login<br>
     -12/04 로그인시 내정보수정,회원탈퇴,로그아웃,<br>
