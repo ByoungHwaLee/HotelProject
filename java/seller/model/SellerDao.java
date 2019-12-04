@@ -30,6 +30,12 @@ public class SellerDao {
 		Seller bean = sqlSessionTemplate.selectOne(namespace + ".getDetail", seller);
 		return bean;
 	}
+
+	public int infoUpdate(Seller seller) {
+		// TODO Auto-generated method stub
+		int cnt = sqlSessionTemplate.update(namespace + ".infoUpdate", seller);
+		return cnt;
+	}
 	
 	
 	
