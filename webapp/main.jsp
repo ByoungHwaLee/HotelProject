@@ -7,6 +7,9 @@
 <html>
 <head>
 <script type="text/javascript" src="resources/jquery/jquery.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script> 
 <script type="text/javascript">
 
 
@@ -34,8 +37,6 @@
 
 
 $(function(){
-	
-	
 	
 	
 	
@@ -104,6 +105,34 @@ $(function(){
 	
 	
 	
+	 $.datepicker.setDefaults({
+		 dateFormat: 'yy-mm-dd',
+		 showOn: "both"
+		,buttonImageOnly: true
+		,buttonText: ""
+		,minDate: "+1D"
+		,maxDate: "+1Y"
+		 
+	 });
+	
+	 
+	 $('#datepicker').datepicker('setDate', '+1D');
+	
+	 $("#datepicker").datepicker(); 
+	 $("#datepicker2").datepicker();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 });
 
@@ -116,7 +145,8 @@ $(function(){
 <link href="<c:url value="/css/bootstrap.css" />" rel="stylesheet">
 <link href="<c:url value="/js/test.js" />" rel="stylesheet">
 <link href="<c:url value="/css/test.css" />" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 
 
@@ -136,22 +166,17 @@ $(function(){
 	<div class="searcharea">
 		<form action="Search.ho" method="post">
 			<div class="searchinput">
-				<label for="area">지역</label> <input type="text" name="area">
+				<label for="area">지역</label> <input type="text" name="area" placeholder="지역을 입력하세요">
 			
-				<p class="searcharea-p">
-				<input type="hidden" id="dates" /> 
-				<label for="checkin">체크인</label> 
-				<input type="text" id="checkin" /> 
-				<label for="checkout">체크아웃</label> 
-				<input type="text" id="checkout" />
+				<p class="searcharea-p scheduler">
+				<input type="text" id="datepicker" placeholder="체크인">
+				<input type="text" id="datepicker2" placeholder="체크아웃">
 				</p>
 				
-			
-
-				<!-- <div id="datepicker">클릭</div> -->
+				
 
 			
-				<div id="person" class="searcharea-p">성인:<span class="adult">0</span>아동:<span class="child">0</span>객실:<span class="room" >0</span></div>
+				<div id="person" class="searcharea-p"><i class="material-icons">face</i>성인:<span class="adult">0</span>아동:<span class="child">0</span>객실:<span class="room" >0</span></div>
 				
 				<div class="personbox">
 					<div class="perbox-box">
