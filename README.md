@@ -6,6 +6,8 @@
 
 <br>
 ahnwoo - admin<br>
+    -12/04 로그인시 어드민페이지로<br>
+           seller리스트<br>
 <br>
 seoHo - member<br>
     -12/03 signup, login<br>
