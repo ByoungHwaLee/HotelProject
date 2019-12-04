@@ -13,7 +13,7 @@ seoHo - member<br>
 <br>
 seoYoung-seller <br>
     -12/03 signup, login<br>
-    -12/04 로그인시 내정보수정,로그아웃,<br>
+    -12/04 로그인시 내정보수정,회원탈퇴,로그아웃,<br>
             hotel의 숙소등록, <br>
             예약 현황<br>
 <br>
