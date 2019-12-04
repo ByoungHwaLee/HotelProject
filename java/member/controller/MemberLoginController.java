@@ -20,6 +20,7 @@ public class MemberLoginController {
 	private final String command = "/login.mem";
 	private final String getPage = "memberLoginForm";
 	private final String goPage = "redirect:/main.jsp";
+	private final String adPage = "redirect:/main.ad";
 	
 	@Autowired
 	private MemberDao memDao;
@@ -47,13 +48,18 @@ public class MemberLoginController {
 			writer.flush();
 			mav.setViewName(getPage);
 			return mav;
-		} else {
-			session.setAttribute("loginfo", login);
 			
-			mav.setViewName(goPage);
+		} else if (login.getM_email().equals("admin@admin")) {
+			session.setAttribute("loginfo", login);
+			mav.setViewName(adPage);
 			
 			return mav;
 		}
 		
+		else {
+			session.setAttribute("loginfo", login);
+			mav.setViewName(goPage);
+			return mav;
+		}
 	}
 }
