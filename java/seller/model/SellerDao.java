@@ -21,6 +21,15 @@ public class SellerDao {
 		int cnt = sqlSessionTemplate.insert(namespace + ".insertData",seller);
 		return cnt;
 	}
+
+	public Seller getDetails(String email, String password) {
+		Seller seller = new Seller();
+		seller.setEmail(email);
+		seller.setPassword(password);
+		// TODO Auto-generated method stub
+		Seller bean = sqlSessionTemplate.selectOne(namespace + ".getDetail", seller);
+		return bean;
+	}
 	
 	
 	
