@@ -11,13 +11,28 @@ public class MemberDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 
-	public Member login(String m_email) {
-		Member member = sqlSessionTemplate.selectOne(namespace + ".login", m_email);
+	public void registerMem(Member member) {
+		sqlSessionTemplate.insert(namespace+".registerMem", member);
+	}
+	
+	public Member login(Member member) {
+		Member members = sqlSessionTemplate.selectOne(namespace + ".login", member);
+
+		return members;
+	}
+
+	public Member info(String m_email) {
+		Member member = sqlSessionTemplate.selectOne(namespace + ".info", m_email);
 		
 		return member;
 	}
 
-	public void registerMem(Member member) {
-		sqlSessionTemplate.insert(namespace+".registerMem", member);
+	public void delete(String m_email) {
+		sqlSessionTemplate.delete(namespace + ".delete", m_email);
 	}
+
+	public void update(Member member) {
+		sqlSessionTemplate.update(namespace + ".update", member);
+	}
+
 }

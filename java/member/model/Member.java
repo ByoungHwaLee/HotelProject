@@ -1,13 +1,34 @@
 package member.model;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Member {
 	private int m_num;
+	@Email(message="이메일을 입력하세요")
 	private String m_email;
+	@Length(min=6, max=12, message="비밀번호는 6~12자리로 입력하세요")
 	private String m_password;
+	@NotEmpty(message="사용할 닉네임을 입력하세요")
 	private String m_nickname;
+	@NotEmpty(message="이름을 입력하세요")
 	private String m_name;
+	@NotEmpty(message="전화번호를 입력하세요")
 	private String m_phone;
+	@Length(min=6, max=12, message="비밀번호는 6~12자리로 입력하세요")
+	private String new_m_password;
 	
+	
+	
+	public String getNew_m_password() {
+		return new_m_password;
+	}
+	public void setNew_m_password(String new_m_password) {
+		this.new_m_password = new_m_password;
+	}
 	public int getM_num() {
 		return m_num;
 	}
@@ -58,4 +79,11 @@ public class Member {
 	public Member() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "Member [m_num=" + m_num + ", m_email=" + m_email + ", m_password=" + m_password + ", m_nickname="
+				+ m_nickname + ", m_name=" + m_name + ", m_phone=" + m_phone + "]";
+	}
+	
+	
 }
