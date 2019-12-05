@@ -8,12 +8,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 	$(function(){
-		var str="<tr><td><input type='text' name='r_type'></td>"+
-		"<td><input type='text' name='r_person'></td>" +
-		"<td><input type='text' name='r_price'></td>" +
-		"<td><input type='text' name='r_stock'></td>" +
+		var str="<tr><td><input type='text' name='type'></td>"+
+		"<td><input type='text' name='person'></td>" +
+		"<td><input type='text' name='price'></td>" +
+		"<td><input type='text' name='stock'></td>" +
 		"<td>"+
-		"<select name='r_breakfast'>" +
+		"<select name='breakfast'>" +
 			"<option value='포함'>포함</option>" +
 			"<option value='미포함'>미포함</option>" +
 		"</select>" +
@@ -126,12 +126,12 @@
 			<th>객실 추가</th>
 		</tr>
 		<tr>
-			<td><input type="text" name="r_type"></td>
-			<td><input type="text" name="r_person"></td>
-			<td><input type="text" name="r_price"></td>
-			<td><input type="text" name="r_stock"></td>
+			<td><input type="text" name="type"></td>
+			<td><input type="text" name="person"></td>
+			<td><input type="text" name="price"></td>
+			<td><input type="text" name="stock"></td>
 			<td>
-			<select name="r_breakfast">
+			<select name="breakfast">
 				<option value="포함">포함</option>
 				<option value="미포함">미포함</option>
 			</select>
