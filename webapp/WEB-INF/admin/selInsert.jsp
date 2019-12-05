@@ -3,7 +3,7 @@
 
 <%@include file="./../common/common.jsp" %>
 
-selInsertForm.jsp<br>
+selInsert.jsp<br>
 
 <form:form commandName="sel" action="insertSel.ad" method="post">
 
@@ -17,11 +17,18 @@ selInsertForm.jsp<br>
 	</p>
 	<p>
 	이름 : <input type="text" name="name" value="${seller.name }">
-	<form:errors path="name"/></p>
-	<p>전화번호: <input type="text" name="phone" value="${seller.phone }"><form:errors path="phone"/></p>
-	<p>사업자번호: <input type="text" name="comnumber" value="${seller.comnumber }"><form:errors path="comnumber"/></p>
-	<p><input type="submit" value="회원가입"></p>
-
+	<form:errors path="name"/>
+	</p>
+	<p>전화번호: <input type="text" name="phone" value="${seller.phone }">
+	<form:errors path="phone"/>
+	</p>
+	<p>
+	사업자번호: <input type="text" name="comnumber" value="${seller.comnumber }">
+	<form:errors path="comnumber"/>
+	</p>
+	<p>
+	<input type="submit" value="회원가입">
+	</p>
 </form:form>
     
     
