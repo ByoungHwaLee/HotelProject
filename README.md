@@ -23,9 +23,12 @@ seoYoung-seller <br>
 <br>
 ByoungHwa-hotel <br>
     -hotel insertForm/객실 추가 <br>
+    -12/5 <br>
+main에서 검색 하면 search.ho를 요청하고 호텔 리스트페이지 출력<br>
+호텔 리스트페이지에서 각 호텔을 눌렀을때 <br>
     
   <br><br><hr><br><br><br><br>  
-    
+    <h1>SQL</h1>
     
 <h2>호텔 테이블</h2>
 create table hotel (
@@ -86,7 +89,5 @@ s_name varchar2(10),
 s_comnumber number
 );
 
-12/5 
-main에서 검색 하면 search.ho를 요청하고 호텔 리스트페이지 출력
-호텔 리스트페이지에서 각 호텔을 눌렀을때 
+
 
