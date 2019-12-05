@@ -8,6 +8,7 @@
 ahnwoo - admin<br>
     -12/04 로그인시 어드민페이지로<br>
            seller리스트,수정,삭제<br>
+    -12/05 seller삽입, Q&A입력페이지<br>
 <br>
 seoHo - member<br>
     -12/03 signup, login<br>
