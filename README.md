@@ -23,12 +23,15 @@ seoYoung-seller <br>
             예약 현황<br>
             메인 디자인 <br>
            -12/05 내가 등록한 호텔 리스트 예약 현황에  띄우기 <br>
+	   main/ selmain 디자인 처리 <br>
+	   
 <br>
 ByoungHwa-hotel <br>
     -hotel insertForm/객실 추가 <br>
     -12/5 <br>
 main에서 검색 하면 search.ho를 요청하고 호텔 리스트페이지 출력<br>
 호텔 리스트페이지에서 각 호텔을 눌렀을때 <br>
+bigSearch, list 상세 디자인 처리<br>
     
   <br><br><hr><br><br><br><br>  
     <h1>SQL</h1>
