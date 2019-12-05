@@ -11,4 +11,12 @@
 		#{h_animal},#{h_parking},#{h_smoke},#{h_language},#{h_image},
 		#{h_hotel_url},#{h_comment})  
 	</insert>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from hotel
+	</select>
+	
+	<select id="getHotelList" resultType="MyHotel">
+		select * from hotel
+	</select>
 </mapper>
