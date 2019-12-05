@@ -16,12 +16,17 @@
 		
 		
 		
-		$('.leftbtn').click(function(){
-			$('.hi-1').animate({marginLeft:'+=205px'});
-		});
-		$('.rightbtn').click(function(){
-			$('.hi-1').animate({marginLeft:'-=205px'});
-		});
+			
+			$('.leftbtn').click(function(){
+				$('.hi-1').animate({marginLeft:'+=205px'});
+			});
+			$('.rightbtn').click(function(){
+				$('.hi-1').animate({marginLeft:'-=205px'});
+			});
+			
+			
+			
+		
 		
 		
 		
@@ -134,7 +139,7 @@ header를 이곳에 추가
 					<td class="rowfilter">필터링 할 수 있는 row 부분</td>
 				</tr>
 			</table>
-			<c:forEach items="${hotelList  }" var="hotel">
+			<c:forEach items="${hotelList  }" var="hotel" varStatus="rr">
 				<table>
 					<tr class="tablerow">
 						<td>
@@ -149,6 +154,7 @@ header를 이곳에 추가
 									</c:forEach>
 									</div>
 								</div>
+								
 										<button type="button" class="leftbtn">&laquo;</button>
 										<button type="button" class="rightbtn"
 											style="margin-left: 150px;">&raquo;</button>
@@ -164,21 +170,18 @@ header를 이곳에 추가
 								<b>${hotel.h_address1 },&nbsp;${hotel.h_nation }</b>
 							</div>
 
-							<div>${hotel.h_comment }</div></td>
-
-
+							<div>${hotel.h_comment }</div>
+							<div>객실유형&nbsp;&nbsp;&nbsp;&nbsp;객실가격</div>
+							<c:forEach items="${hotel.rooms }" var="room">
+								<a>${room.r_type }&nbsp;&nbsp;&nbsp;&nbsp;${room.r_price }</a><br>
+							</c:forEach>
+					
+						</td>
+						
 					</tr>
-				
-					<tr>
-						<th>객실유형&nbsp;&nbsp;&nbsp;&nbsp;</th>
-						<th>객실가격</th>
-					</tr>
-					<c:forEach items="${hotel.rooms }" var="room">
-						<tr>
-							<td>${room.r_type }&nbsp;&nbsp;&nbsp;&nbsp;</td>
-							<td>${room.r_price }</td>
-						</tr>
-					</c:forEach>
+						
+						
+					
 				</table>
 
 
