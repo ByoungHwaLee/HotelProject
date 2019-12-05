@@ -21,17 +21,14 @@ import hotel.model.Room;
 import hotel.model.RoomDao;
 import seller.model.Seller;
 
-
-
 @Controller
 public class HotelInsertController {
-	
-	private final String command="/insert.ho";
-	private final String getPage="hotelInsertForm";
+	private final String command = "hotelInsert.ho";
+	private final String getPage = "hotelInsert";
 	private final String gotoPage="redirect:/selMain.sel";
 	
 	@Autowired
-	private HotelDao hotelDao;
+	HotelDao hoDao;
 	
 	@Autowired
 	private RoomDao roomDao;
@@ -67,7 +64,7 @@ public class HotelInsertController {
 		}
 		System.out.println("객실 등록:" +roomcnt);
 		
-		String filePath=application.getRealPath("/resources"+hotel.getH_name());
+		String filePath=application.getRealPath("/resources/"+hotel.getH_name());
 		
 		List<MultipartFile> fileList=mpfRequest.getFiles("file");
 		
@@ -89,9 +86,17 @@ public class HotelInsertController {
 			image+=fileList.get(i).getOriginalFilename()+";";
 		}
 		hotel.setH_image(image);
-		int hotelcnt=hotelDao.insertHotel(hotel);
+		int hotelcnt=hoDao.insertHotel(hotel);
 		System.out.println("호텔등록:"+hotelcnt);
 		
 		return gotoPage;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
