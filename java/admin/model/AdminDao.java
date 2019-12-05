@@ -56,11 +56,12 @@ public class AdminDao {
 		sqlSessionTemplate.update(namespace + ".updateSelInfo", seller);
 	}
 
-	public void insertSel(Seller seller) {
+	public int insertSel(Seller seller) {
 		System.out.println(seller);
-//		int cnt = sqlSessionTemplate.insert(namespace + ".insertSel", seller);
-		sqlSessionTemplate.insert(namespace + ".insertSel", seller); 
-
+		int cnt = sqlSessionTemplate.insert(namespace + ".insertSel", seller);
+//		sqlSessionTemplate.insert(namespace + ".insertSel", seller); 
+		System.out.println(cnt);
+		return cnt;
 	}
 	
 

@@ -33,13 +33,13 @@ public class AdminSellerInsertController {
 
 	@RequestMapping(value=command, method=RequestMethod.POST)
 	public String doAction(
-			@ModelAttribute @Valid Seller seller, 
+			@ModelAttribute("sel") @Valid Seller seller, 
 			Model model
 			) {
 		System.out.println("인서트 포스트요청");
 		System.out.println(seller);
-		adDao.insertSel(seller);
-		
+		int cnt = adDao.insertSel(seller);
+		System.out.println(cnt);
 		return gotoPage;
 	}
 
