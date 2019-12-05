@@ -20,7 +20,7 @@ seoYoung-seller <br>
     -12/04 로그인시 내정보수정,회원탈퇴,로그아웃,<br>
             예약 현황<br>
             메인 디자인 <br>
-            내가 등록한 호텔 리스트 예약 현황에  띄우기 <br>
+           -12/05 내가 등록한 호텔 리스트 예약 현황에  띄우기 <br>
 <br>
 ByoungHwa-hotel <br>
     -hotel insertForm/객실 추가 <br>
