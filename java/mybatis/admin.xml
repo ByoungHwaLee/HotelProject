@@ -28,9 +28,25 @@
 		</if>
 		<if test="whatColumn == 'comnumber'">
 		where comnumber like #{keyword}
-		</if>	 
+		</if>
+		order by num desc
 	</select>
 	
+	 <delete id="deleteSel">
+	 	delete from sellers where num=#{num} 
+	 </delete>
+	 
+	<select id="selectSel" resultType="MySeller">
+		select * from sellers where num=#{num}
+	</select>
 	
+	<update id="updateSelInfo">
+		update sellers set password=#{password}, phone=#{phone}, name=#{name}, comnumber=#{comnumber}
+		where email=#{email}
+	</update>
+	
+	<insert id="insertSel">
+		insert into sellers values(seller_seq.nextval, #{email}, #{password}, #{phone}, #{name}, #{comnumber})
+	</insert>
 	
 </mapper>
