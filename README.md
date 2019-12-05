@@ -92,3 +92,17 @@ s_comnumber number
 
 
 
+
+<hr>
+옮기기<br>
+<c:if test="${sessionScope.loginfo == null }">
+			<a href="register.mem" style="float:right; margin:20px;">회원가입</a>
+			<a href="login.mem" style="float:right; margin:20px;">로그인</a>
+		</c:if>
+		<c:if test="${sessionScope.loginfo != null }">
+			<a href="logout.mem" style="float:right; margin:20px;">로그아웃</a>
+			<a href="info.mem" style="float:right; margin:20px;">내 정보</a>
+		</c:if>
+
+
+
