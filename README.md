@@ -62,3 +62,7 @@ r_breakfast varchar2(10),
 r_stock number
 );
 
+12/5 
+main에서 검색 하면 search.ho를 요청하고 호텔 리스트페이지 출력
+호텔 리스트페이지에서 각 호텔을 눌렀을때 
+
