@@ -6,14 +6,20 @@ memberLoginForm.jsp<br>
 
 
 <script type="text/javascript">
-function main() {
+function cancel() {
 	
-	location.href="main.jsp"
+	/* opener.parent.location="main.jsp"; */
+	window.close();
+	
+	/* location.href="main.jsp" */
+}
+
+function login() {
+	
+	opener.location.reload();
+	window.close();
 }
 </script>
-
-
-
 
 <form:form method="post" action="login.mem">
 	<table border="1">
@@ -30,8 +36,8 @@ function main() {
 	
 	<tr>
 		<td colspan="2">
-			<input type="submit" value="로그인">
-			<input type="reset" value="취소" onclick="main()">
+			<input type="submit" value="로그인" onclick="login()">
+			<input type="reset" value="취소" onclick="cancel()">
 		</td>
 	</tr>
 	</table>
