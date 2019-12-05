@@ -1,200 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/common/common.jsp"%>
-
-
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="resources/jquery/jquery.js"></script>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
-<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script> 
-<script type="text/javascript">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$(function(){
-	
-	
-	
-	
-	
-	
-	
-	
-	$('#person').click(function(){
-		$('.personbox').toggle();
-
-		
-	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	var i = 0;
-	$('#minus').click(function(){
-		i--;
-		
-		$('span.adult').append().text(i);
-	});
-	
-	$('#plus').click(function(){
-		i++;
-		
-		$('span.adult').append().text(i);
-		
-	});
-	
-	
-	var c = 0;
-	$('#cminus').click(function(){
-		c--;
-		
-		$('span.child').append().text(c);
-	});
-	
-	$('#cplus').click(function(){
-		c++;
-		
-		$('span.child').append().text(c);
-		
-	});
-	
-	var r = 0;
-	$('#rminus').click(function(){
-		r--;
-		
-		$('span.room').append().text(r);
-	});
-	
-	$('#rplus').click(function(){
-		r++;
-		
-		$('span.room').append().text(r);
-		
-	});
-	
-	
-	
-	
-	 $.datepicker.setDefaults({
-		 dateFormat: 'yy-mm-dd',
-		 showOn: "both"
-		,buttonImageOnly: true
-		,buttonText: ""
-		,minDate: "+1D"
-		,maxDate: "+1Y"
-		 
-	 });
-	
-	 
-	 $('#datepicker').datepicker('setDate', '+1D');
-	
-	 $("#datepicker").datepicker(); 
-	 $("#datepicker2").datepicker();
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-});
-
-</script>
-
-
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link href="<c:url value="/css/bootstrap.css" />" rel="stylesheet">
-<link href="<c:url value="/js/test.js" />" rel="stylesheet">
-<link href="<c:url value="/css/test.css" />" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+<style>
+</style>
+<script type="text/javascript">
 
+function login() {
+	var popupX = (window.screen.width / 2) - (200 / 2);
+	var popupY = (window.screen.height / 2) - (300 / 2);
+	
+	window.open(	
+			'login.mem','_blank','height=300, width=300, toolbar=no, menubar=no, location=no, scrollbars=no, status=no, resizable=no, fullscreen=no, channelmode=yes, left='+ popupX +', top='+ popupY
+			); return false
+}
 
-
-
+</script>
 
 </head>
 <body>
-
-	<header class="main-menu">
-		<a href="#" class="main">호텔로고자리</a> 
-		<a class="mainright" href="#">로그인</a>
-		<a class="mainright" href="#">회원가입</a> 
-		<a class="mainright" href="selMain.sel">판매자</a>
+	<header>
+		<a href="#" class="main" style="float:left; margin:20px;">메인으로</a>
+		<c:if test="${sessionScope.loginfo == null }">
+			<a href="register.mem" style="float:right; margin:20px;">회원가입</a>
+			<a href="#" onclick="login()" style="float:right; margin:20px;">로그인</a>
+			<!-- <a href="login.mem" style="float:right; margin:20px;">로그인</a> -->
+		</c:if>
+		<c:if test="${sessionScope.loginfo != null }">
+			<a href="logout.mem" style="float:right; margin:20px;">로그아웃</a>
+			<a href="info.mem" style="float:right; margin:20px;">내 정보</a>
+		</c:if>
+		<a href="#" style="float:right; margin:20px;">판매자</a>
 	</header>
-
-
-	<div class="searcharea">
-		<form action="Search.ho" method="post">
-			<div class="searchinput">
-				<label for="area">지역</label> <input type="text" name="area" placeholder="지역을 입력하세요">
-			
-				<p class="searcharea-p scheduler">
-				<input type="text" id="datepicker" placeholder="체크인">
-				<input type="text" id="datepicker2" placeholder="체크아웃">
-				</p>
-				
-				
-
-			
-				<div id="person" class="searcharea-p"><i class="material-icons">face</i>성인:<span class="adult">0</span>아동:<span class="child">0</span>객실:<span class="room" >0</span></div>
-				
-				<div class="personbox">
-					<div class="perbox-box">
-					<div>성인:<input id="minus" type="button" value="-"><span class="adult">0</span><input id="plus" type="button" value="+"></div>
-					<div>아동:<input id="cminus" type="button" value="-"><span class="child">0</span><input id="cplus" type="button" value="+"></div>
-					<div>객실:<input id="rminus" type="button" value="-"><span class="room">0</span><input id="rplus" type="button" value="+"></div>
-					</div>
-				</div>
-
-			
-				<input type="submit" value="검색">
-			
-			</div>
-		</form>
-	</div>
-
-
-
-	<footer class="modal-footer footer"> 만든이: 손안우 신서영 윤서호 이병화 </footer>
+	
+	<br>
+	<section>
+	<form action="Search.ho" method="post" style="margin:80px">
+	<p>
+		<label for="area">지역</label>
+		<input type="text" name="area">
+	</p>
+	<span>
+		<label for="checkin">체크인</label>
+		<input type="text" name="checkin">
+	</span>
+	<span>
+		<label for="checkout">체크아웃</label>
+		<input type="text" name="checkout">
+	</span>
+	<p>
+		<input type="submit" value="검색">
+	</p>
+	
+	</form>
+	</section>
+	
 </body>
 </html>
