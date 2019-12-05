@@ -5,6 +5,14 @@ body {
 	
 }
 
+h4 {
+	    font-size: 22px;
+	margin: 0px;
+    background: #ff5919;
+    padding: 9px;
+    border-radius: 5px;
+}
+
 .hotelimage {
 	width: 200x;
     height: 200px;
@@ -12,7 +20,7 @@ body {
 
 
 .img-cutter {
-	border:1px solid green;
+	
 	width: 200px;
 	height: 200px;
    	overflow: hidden;
@@ -20,7 +28,7 @@ body {
 }
 
 .img-only-wrap {
-	border:1px solid orange;
+	
 	width: 2000px;
 	position: relative;
     display: inline-block;
@@ -34,7 +42,7 @@ body {
 
 .leftbar {
 	width : 25%;
-	height: 800px;
+	height: auto;
 	border:1px solid green;
 	margin-left: 30px;
 }
@@ -42,10 +50,10 @@ body {
 
 .rightbar{
 	width: 70%;
-	height:800px;
-	
+	height:auto;
+	border: 2px solid #b7b7b7;
 	float:right;
-	border: 1px solid red;
+	border-radius:5px;
 }
 
 .rowfilter {
@@ -60,12 +68,15 @@ body {
 
 .leftSearch-wrap {
 	
-	border: 1px solid orange;
+	background: #ffa114ad;
+    border-radius: 5px;
+    margin: 5px;
 	
 }
 
 .leftsearch-form {
 	text-align: center;
+	padding: 10;
 }
 
 .imagesearch {
@@ -103,5 +114,29 @@ body {
 	color: blue;
 	font-style:bold;
 }
+
+
+
+/*****************left bar*********************/
+
+
+.calc {
+	border: 2px solid #ff6b09;
+    background: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;	
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
