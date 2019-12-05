@@ -18,3 +18,46 @@
   </dd>
 
 </dl>
+
+
+
+
+$(function() {
+	$("#faq > dt").click(showHide);
+});
+
+function showHide(e) {
+	var $sbj = $(e.currentTarget);
+  
+  $sbj.prevAll("dd:visible").slideUp("fast", bulletChange);
+  
+  $sbj.next().nextAll("dd:visible").slideUp("fast", bulletChange);
+  //이미닫은게 반응하면 안되서 한번 건너 뛰기 위해 .next를 한번 씀
+  
+  $sbj.next().slideToggle("fast", bulletChange);
+  
+  function bulletChange() {
+    var $sbjBullet = $(this).prev().find('span'); 
+    //하나 하나 찾아가야 문자가 열고닫을때 바뀐다
+  	var curDisplay = $(this).css("display"); 
+    // 여기서의this는 dd이다 
+    if (curDisplay == "none") {
+    	$sbjBullet.text("▼");
+    } else {
+    	$sbjBullet.text("▲");
+    }
+  }
+}
+
+
+
+
+
+#faq > dt {
+  border-bottom: 1px solid #CCC;
+}
+
+#faq > dd {
+  display: none;
+  padding: 10px;
+}
