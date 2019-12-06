@@ -24,6 +24,7 @@ input {
 	border-color: #b5b5b5;
     border-style: solid;
     border-radius: 5px;
+    width:30%;
 }
 
 /*************** MAIN ***** 메인 ********************/
@@ -51,6 +52,9 @@ input {
 	height: 50px;
 	background: #000e98;
 	
+}
+.main-login {
+	margin:10px;
 }
 
 .footer{
@@ -85,6 +89,7 @@ input {
     height: 40px;
 	margin: 10px;
 	border-radius:5px;
+	    width: 23%;
 }
 
 .personbox {
@@ -114,7 +119,7 @@ input {
 }
 #datepicker, #datepicker2 {
 	border: none;
-    width: 95px;
+        width: 45%;
     
 }
 
@@ -124,6 +129,7 @@ input {
     background: #0c25a2;
     color: white;
     padding: 7px 17px;
+    width:10%;
 }
 
 .calc {
