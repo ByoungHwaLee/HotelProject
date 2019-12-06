@@ -28,25 +28,44 @@
 		</if>
 		<if test="whatColumn == 'comnumber'">
 		where comnumber like #{keyword}
+		</if>	 
+	</select>
+	
+	<select id="getTotalCountMem" resultType="int">
+		select count(*) from members
+		<if test="whatColumn == 'm_email'">
+		where m_email like #{keyword}
+		</if>		
+		<if test="whatColumn == 'm_nickname'">
+		where m_nickname like #{keyword}
 		</if>
-		order by num desc
 	</select>
 	
-	 <delete id="deleteSel">
-	 	delete from sellers where num=#{num} 
-	 </delete>
-	 
-	<select id="selectSel" resultType="MySeller">
-		select * from sellers where num=#{num}
+	<select id="getMemList" resultType="MyMember">
+		select * from members
+		<if test="whatColumn == 'm_email'">
+		where m_email like #{keyword}
+		</if>		
+		<if test="whatColumn == 'm_nickname'">
+		where m_nickname like #{keyword}
+		</if>
+		order by m_num desc
 	</select>
 	
-	<update id="updateSelInfo">
-		update sellers set password=#{password}, phone=#{phone}, name=#{name}, comnumber=#{comnumber}
-		where email=#{email}
-	</update>
+	<delete id="deleteMem">
+		delete members
+		where m_num = #{m_num}
+	</delete>
 	
-	<insert id="insertSel">
-		insert into sellers values(seller_seq.nextval, #{email}, #{password}, #{phone}, #{name}, #{comnumber})
-	</insert>
+	<select id="updateView" resultType="Mymember">
+		select * from members
+		where m_num=#{m_num}
+	</select>
+	
+	<update id="updateMem">
+		update members set m_email=#{m_email}, m_password=#{m_password}, m_nickname=#{m_nickname}, m_name=#{m_name}, m_phone=#{m_phone}
+		where m_num = #{m_num}
+	</update> 
+	
 	
 </mapper>
