@@ -47,55 +47,84 @@
 		
 		
 		
+			//******** ADUlt********************************************************************
+			var i = 0;
+			var ori = $('input.adult').val();
+			ori = parseInt(ori);
+			
+			
+			$('#minus').click(function(){
+				i--;
+				
+				if((ori+i)<0){
+					ori = 0;
+					i = 0;
+				}
+				
+				$('span.adult').append().text(ori+i);
+				$('input.adult').attr('value', ori+i);
+				
+				
 
-		var i = 0;
-		$('#minus').click(function(){
-			i--;
+			});
 			
-			$('span.adult').append().text(i);
+			$('#plus').click(function(){
+				i++;
+				
+				$('span.adult').append().text(ori+i);
+				
+				$('input.adult').attr('value', ori+i);
+			});
 			
-
-		});
-		
-		$('#plus').click(function(){
-			i++;
+			//********CHILD      ***********************************************************
+			var c = 0;
+			var orc = $('input.child').val();
+			orc = parseInt(orc);
+			$('#cminus').click(function(){
+				c--;
+				if((orc+c)<0){
+					orc = 0;
+					c = 0;
+				}
+				
+				$('span.child').append().text(orc+c);
+				$('input.child').attr('value', orc+c);
+			});
 			
-			$('span.adult').append().text(i);
+			$('#cplus').click(function(){
+				c++;
+				
+				$('span.child').append().text(orr+r);
+				$('input.child').attr('value', orc + c);
+				
+			});
 			
-		});
-		
-		
-		var c = 0;
-		$('#cminus').click(function(){
-			c--;
+			//********room*********************************************************************
+			var r = 0;
+			var orr = $('input.room').val();
+			orr = parseInt(orr);
+			$('#rminus').click(function(){
+				r--;
+				if((orr+r)<0){
+					orr = 0;
+					r = 0;
+				}
+				
+				$('span.room').append().text(orr+r);
+				$('input.room').attr('value',orr+ r);
+			});
 			
-			$('span.child').append().text(c);
-		});
-		
-		$('#cplus').click(function(){
-			c++;
-			
-			$('span.child').append().text(c);
-			
-		});
-		
-		var r = 0;
-		$('#rminus').click(function(){
-			r--;
-			
-			$('span.room').append().text(r);
-		});
-		
-		$('#rplus').click(function(){
-			r++;
-			
-			$('span.room').append().text(r);
-			
-		});
+			$('#rplus').click(function(){
+				r++;
+				
+				$('span.room').append().text(orr+r);
+				$('input.room').attr('value',orr+ r);
+				
+			});
 		
 		
 		
-		
+			//********DATE********************************************************************
 		 $.datepicker.setDefaults({
 			 dateFormat: 'yy-mm-dd',
 			 showOn: "both"
@@ -111,7 +140,10 @@
 		
 		 $("#datepicker").datepicker(); 
 		 $("#datepicker2").datepicker();
-		
+		 
+		 
+		//********DATE********************************************************************
+	
 		
 		
 		
@@ -120,6 +152,7 @@
 
 	});
 </script>
+
 
 
 
@@ -134,11 +167,25 @@ header를 이곳에 추가
 	<div class="rightbar">
 
 		<div class="listarea">
-			<table>
-				<tr>
-					<td class="rowfilter">필터링 할 수 있는 row 부분</td>
-				</tr>
-			</table>
+			
+					<div class="rowfilter" >
+						<ul class="rowFilUl" >
+						<!-- 이부분 안되는데 왜 안될까 시간 나면 확인 해보기  -->
+							<li>기본</li>
+							<li><a href="Search.ho?searchas=money" >요금</a></li>
+							<li><a href="Search.ho?searchas=star" >평점</a></li>
+						
+						</ul>
+		
+					</div>
+			
+			
+		
+			
+			
+			
+			
+			
 			<c:forEach items="${hotelList  }" var="hotel" varStatus="rr">
 				<table>
 					<tr class="tablerow">
@@ -164,7 +211,7 @@ header를 이곳에 추가
 						</td>
 
 						<td><span class="htypesearch">${hotel.h_type }</span><a
-							class="hnamesearch" href="hoDetail.ho?h_name=${hotel.h_name }"><b>${hotel.h_name }</b></a>
+							class="hnamesearch" href="hotelDetail.ho?num=${hotel.num }&area=${param.area}&checkin=${param.checkin}&checkout=${param.checkout}&adult=${param.adult}&child=${param.child}&room=${param.room}"><b>${hotel.h_name }</b></a>
 
 							<div class="addsearch">
 								<b>${hotel.h_address1 },&nbsp;${hotel.h_nation }</b>
@@ -201,7 +248,7 @@ header를 이곳에 추가
 	<div class="leftbar">
 
 		<div class="leftSearch-wrap">
-			<form action="Search.ho" method="post" class="leftsearch-form">
+			<form action="Search.ho" class="leftsearch-form">
 				<h4>검색</h4>
 				<div class="searchinput">
 					<i class="material-icons">airplanemode_active</i> <input
@@ -219,32 +266,35 @@ header를 이곳에 추가
 
 
 					<div id="person" class="searcharea-p">
-						&nbsp;<i class="material-icons">face</i><br>성인:<span
-							class="adult">0</span>&nbsp;&nbsp;아동:<span class="child">0</span>&nbsp;&nbsp;객실:<span
-							class="room">0</span>&nbsp;
+						&nbsp;<i class="material-icons">face</i><br>
+						성인:<span class="adult">${param.adult }</span>&nbsp;&nbsp;
+						아동:<span class="child">${param.child }</span>&nbsp;&nbsp;
+						객실:<span class="room">${param.room }</span>&nbsp;
 					</div>
 
 					<div class="personbox">
 						<div class="perbox-box">
 							<div>
 								성인:<input id="minus" class="calc" type="button" value="-"><span
-									class="adult">0</span><input id="plus" class="calc"
+									class="adult">${param.adult }</span><input id="plus" class="calc"
 									type="button" value="+">
 							</div>
 							<div>
 								아동:<input id="cminus" class="calc" type="button" value="-"><span
-									class="child">0</span><input id="cplus" class="calc"
+									class="child">${param.child }</span><input id="cplus" class="calc"
 									type="button" value="+">
 							</div>
 							<div>
 								객실:<input id="rminus" class="calc" type="button" value="-"><span
-									class="room">0</span><input id="rplus" class="calc"
+									class="room">${param.room }</span><input id="rplus" class="calc"
 									type="button" value="+">
 							</div>
 						</div>
 					</div>
 
-
+					<input type="hidden" name="adult" class="adult" value="${param.adult }">
+					<input type="hidden" name="child" class="child"  value="${param.child }">
+					<input type="hidden" name="room" class="room"  value="${param.room }">
 					<input class="mainsubmitbtn" type="submit" value="검색">
 
 				</div>
