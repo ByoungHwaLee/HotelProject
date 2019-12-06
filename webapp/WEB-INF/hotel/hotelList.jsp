@@ -6,26 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="../../resources/jquery/jquery.js"></script>
 <style>
 	
 </style>
-<script>
-	$(function(){
-		var i=-1;
-		$(".leftbtn").bind("click",function(){
-			$(".hotelimage").animate({marginLeft:"-=235px"},2000);
-		});
-		
-	});
-
-</script>
 </head>
 <body>
 	<c:forEach items="${hotelList }" var="hotel">
 		<table border="1" id="area">
 			<tr>
-				<th><a href="#">${hotel.h_name }</a><br>${hotel.h_address1 },${hotel.h_nation }</th>
+				<th><a href="hotelDetail.ho?num=${hotel.num }">${hotel.h_name }</a><br>${hotel.h_address1 },${hotel.h_nation }</th>
 				<th colspan="3">평점</th>
 			</tr>
 			<tr>
