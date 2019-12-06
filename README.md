@@ -10,7 +10,7 @@
            seller리스트,수정,삭제<br>
     -12/05 seller삽입<br>
     	   FAQ페이지,로그인/비로그인Q&A입력,리스트<br>
-	   admin 권한설정<br>
+    -12/06 Q&A수정, admin페이지 권한설정<br>
  <br>
     <hr>
     <br>
