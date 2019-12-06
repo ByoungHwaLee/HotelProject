@@ -19,4 +19,8 @@
 	<select id="getHotelList" resultType="MyHotel">
 		select * from hotel
 	</select>
+	
+	<select id="getHotelOne" resultType="MyHotel">
+		select * from hotel where num=#{num}
+	</select>
 </mapper>
