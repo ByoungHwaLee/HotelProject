@@ -6,11 +6,12 @@
 
 <br>
 <h3>ahnwoo - admin</h3><br>
-    -12/04 로그인시 어드민페이지로<br>
+    -12/04 로그인시 어드민페이지로 이동<br>
            seller리스트,수정,삭제<br>
     -12/05 seller삽입<br>
     	   FAQ페이지,로그인/비로그인Q&A삽입,리스트<br>
-    -12/06 Q&A수정, member삽입, admin페이지 접근권한설정<br>
+    -12/06 Q&A, Q&A검색시 익스플로러에서도 문제없도록 수정<br>
+    	   member삽입, admin 접근권한설정<br>
  <br>
     <hr>
     <br>
@@ -103,8 +104,21 @@ s_name varchar2(10),
 s_comnumber number
 );
 
+<h2> Q&테이블 </h2>
+create sequence qna_seq
+start with 0
+minvalue 0
+increment by 1
+nocache;
 
-
+create table qna (
+num number primary key,
+email varchar2(30) not null,
+title varchar2(30) not null,
+content varchar2(2000) not null,
+regDate varchar2(20),
+checked number default 0
+);
 
 <hr>
 옮기기<br>
