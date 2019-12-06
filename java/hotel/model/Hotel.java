@@ -1,8 +1,13 @@
 package hotel.model;
 
+import java.util.List;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Hotel {
 	private int num;
 	private int selNum;
+	@NotEmpty(message = "호텔이름은 필수입니다.")
 	private String h_name;
 	private String h_nation;
 	private String h_address1;
@@ -19,6 +24,8 @@ public class Hotel {
 	private String h_image;
 	private String h_comment;
 	private int h_room_num;
+	private String[] images;
+	private List<Room> rooms;
 	
 	
 	public Hotel() {
@@ -164,6 +171,26 @@ public class Hotel {
 	}
 	public void setH_room_num(int h_room_num) {
 		this.h_room_num = h_room_num;
+	}
+
+
+	public String[] getImages() {
+		return images;
+	}
+
+
+	public void setImages(String[] images) {
+		this.images = images;
+	}
+
+
+	public List<Room> getRooms() {
+		return rooms;
+	}
+
+
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
 	}
 	
 	
