@@ -1,54 +1,102 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="./../common/common.jsp" %>
-selInfo jsp
-<br>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
+<style>
+body {
+background:#e0e0e0a1;
+
+
+}
+td {
+    padding: 10px;
+}
+form {
+    width: 50%;
+    margin: auto;
+}
+.error {
+    font-size: 12px;
+    color: #ff2121;
+    float: right;
+}
+.container {
+width: 50%;
+height: 700px;
+	padding-top: 60px;
+    background: white;
+    margin: 40px auto;
+    box-shadow: 0px 1px 6px 2px #c3c3c3;
+
+}
+.col-md-8 {
+
+    margin: 10px 5px;
+}
+
+
+</style>
+
+
+
+<div class="container">
+<a class="btn btn-default" href="<%=request.getContextPath() %>/selMain.sel">메인으로</a>
 <form:form commandName="sel" action="selInfo.sel" method="post">
 <input type="hidden" name="num" value="${seller.num }">
 <input type="hidden" name="email" value="${seller.email }">
-	<table>
-		<tr>
-			<td>아이디</td>
-			<td>${seller.email }</td>
+	<div class="form-horizontal">
+		<div>
+			<p class="form-group">아이디</p>
+			<p>${seller.email }</p>
 
-		</tr>
-		<tr>
-			<td>비밀번호 변경</td>
-			<td><input type="password" name="password" value=""><form:errors path="password"/></td>
+		</div>
+		<div>
+			<p>현재 비밀번호</p>
+			<p><input class="form-control" type="password" name="password" value="${seller.password }" readonly><form:errors class="error" path="password"/></p>
 
-		</tr>
-		<tr>
-			<td>비밀번호 확인</td>
-			<td><input type="password" name="password-check" value=""></td>
-			<td><span class="message"></span></td>
-		</tr>
-		<tr>
-			<td>이름</td>
-			<td><input type="text" name="name" value="${seller.name }"><form:errors path="name"/></td>
+		</div>
+		<div>
+			<p>비밀번호 변경</p>
+			<p ><input class="form-control" type="password" name="password" value=""><form:errors class="error" path="password"/></p>
 
-		</tr>
-		<tr>
-			<td>전화번호</td>
-			<td><input type="text" name="phone" value="${seller.phone }"><form:errors path="phone"/></td>
+		</div>
+		<div>
+			<p>비밀번호 확인</p>
+			<p><input class="form-control" type="password" name="password-check" value=""></p>
+			<p><span class="message"></span></p>
+		</div>
+		<div>
+			<p>이름</p>
+			<p><input class="form-control" type="text" name="name" value="${seller.name }"><form:errors class="error" path="name"/>
+			</p>
 
-		</tr>
-		<tr>
-			<td>사업자번호</td>
-			<td><input type="text" name="comnumber" value="${seller.comnumber }"><form:errors path="comnumber"/></td>
+		</div>
+		<div>
+			<p>전화번호</p>
+			<p><input class="form-control" type="text" name="phone" value="${seller.phone }"><form:errors class="error" path="phone"/></p>
 
-		</tr>
+		</div>
+		<div>
+			<p>사업자번호</p>
+			<p><input class="form-control" type="text" name="comnumber" value="${seller.comnumber }"><form:errors class="error" path="comnumber"/></p>
+
+		</div>
 
 
 
 
 
 
-	</table>
-	<input type="submit" value="수정하기">
+	</div>
+<div class="col-md-8">
+	<input class="btn btn-primary" type="submit" value="수정하기">
+	<a class="btn btn-default" href="<%=request.getContextPath() %>/selDelete.sel?num=${seller.num }">탈퇴하기</a>
+</div>
 </form:form>
-<a href="<%=request.getContextPath() %>/selMain.sel">메인으로</a>
-<a href="<%=request.getContextPath() %>/selDelete.sel?num=${seller.num }">탈퇴하기</a>
+</div>
 
 
 
