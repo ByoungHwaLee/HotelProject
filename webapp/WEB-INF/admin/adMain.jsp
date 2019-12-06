@@ -15,9 +15,9 @@ adMain.jsp<br>
 ${ loginfo.getM_email()}님 안녕하세요.<br>
 
 회원관리<br>
-Q&A<br>
 <a href="selList.ad">SellerList</a><br>
-MemberList<br>
+<a href="memList.ad">MemberList</a><br>
+Q&A<br>
 
 
 </body>

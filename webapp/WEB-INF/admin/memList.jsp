@@ -3,7 +3,7 @@
 <%@ include file="./../common/common.jsp"%>
 
 memList.jsp<br>
-
+<a href="logout.mem" style="float:right; margin:20px;">로그아웃</a>
 <body>
 
 	<form action="memList.ad" method="get">
@@ -43,6 +43,6 @@ memList.jsp<br>
 			</tr>
 		</c:forEach>
 </table>
-${pageInfo.pagingHtml }
+${pageInfo.pagingHtml}
 </body>
 </html>
