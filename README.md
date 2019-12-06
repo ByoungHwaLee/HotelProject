@@ -5,28 +5,36 @@
 
 
 <br>
-ahnwoo - admin<br>
+<h3>ahnwoo - admin</h3><br>
     -12/04 로그인시 어드민페이지로<br>
            seller리스트,수정,삭제<br>
     -12/05 seller삽입<br>
     	   FAQ페이지,로그인/비로그인Q&A입력,리스트<br>
 	   admin 권한설정<br>
-<br>
-seoHo - member<br>
+ <br>
+    <hr>
+    <br>
+<h3>seoHo - member</h3><br>
     -12/03 signup, login<br>
     -12/04 member - 정보 수정, 삭제<br>
            관리자페이지 member 리스트, 수정, 삭제
+    -12/05 로그인 새로운 창에 띄우기<br>
     <br>
-seoYoung-seller <br>
+    <hr>
+    <br>
+<h3>seoYoung-seller</h3> <br>
     -12/03 signup, login<br>
     -12/04 로그인시 내정보수정,회원탈퇴,로그아웃,<br>
             예약 현황<br>
             메인 디자인 <br>
-           -12/05 내가 등록한 호텔 리스트 예약 현황에  띄우기 <br>
+    -12/05 내가 등록한 호텔 리스트 예약 현황에  띄우기 <br>
 	   main/ selmain 디자인 처리 <br>
+    -12/06 셀러로긴디자인<br>
 	   
-<br>
-ByoungHwa-hotel <br>
+ <br>
+    <hr>
+    <br>
+<h3>ByoungHwa-hotel</h3> <br>
     -hotel insertForm/객실 추가 <br>
     -12/5 <br>
 main에서 검색 하면 search.ho를 요청하고 호텔 리스트페이지 출력<br>
