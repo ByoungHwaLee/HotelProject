@@ -8,17 +8,18 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class Member {
 	private int m_num;
-	@Email(message="이메일을 입력하세요")
+/*	@NotEmpty(message="이메일을 입력하세요")
+	@Email(message="이메일 양식이 아닙니다")*/
 	private String m_email;
-	@Length(min=6, max=12, message="비밀번호는 6~12자리로 입력하세요")
+	/*@Length(min=6, max=12)*/
 	private String m_password;
-	@NotEmpty(message="사용할 닉네임을 입력하세요")
+/*	@NotEmpty(message="사용할 닉네임을 입력하세요")*/
 	private String m_nickname;
-	@NotEmpty(message="이름을 입력하세요")
+/*	@NotEmpty(message="이름을 입력하세요")*/
 	private String m_name;
-	@NotEmpty(message="전화번호를 입력하세요")
+/*	@NotEmpty(message="전화번호를 입력하세요")*/
 	private String m_phone;
-	@Length(min=6, max=12, message="비밀번호는 6~12자리로 입력하세요")
+/*	@Length(min=6, max=12, message="비밀번호는 6~12자리로 입력하세요")*/
 	private String new_m_password;
 	
 	
