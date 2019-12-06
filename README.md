@@ -104,7 +104,7 @@ s_name varchar2(10),
 s_comnumber number
 );
 
-<h2> Q&테이블 </h2>
+<h2> Q&A테이블 </h2>
 create sequence qna_seq
 start with 0
 minvalue 0
