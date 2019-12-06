@@ -26,10 +26,12 @@ public class MemberListController {
 	private AdminDao adDao;
 
 	@RequestMapping(command)
-	private ModelAndView memList(@RequestParam(value = "whatColumn", required = false) String whatColumn,
+	private ModelAndView memList(
+			@RequestParam(value = "whatColumn", required = false) String whatColumn,
 			@RequestParam(value = "keyword", required = false) String keyword,
 			@RequestParam(value = "pageNumber", required = false) String pageNumber,
-			@RequestParam(value = "pageSize", required = false) String pageSize, HttpServletRequest request) {
+			@RequestParam(value = "pageSize", required = false) String pageSize,
+			HttpServletRequest request) {
 
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("whatColumn", whatColumn);

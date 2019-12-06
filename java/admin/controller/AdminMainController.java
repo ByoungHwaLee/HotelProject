@@ -31,7 +31,7 @@ public class AdminMainController {
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		}
-		if (!adcheck.equals("admin")) {
+		if (!adcheck.equals("admin@admin")) {
 			try {
 				session.invalidate();
 				PrintWriter writer = response.getWriter();
@@ -43,9 +43,4 @@ public class AdminMainController {
 		}
 		return getPage;
 	}
-
-//	@RequestMapping(value = command, method = RequestMethod.POST)
-//	public String doAction2() {
-//		return goPage;
-//	}
 }
