@@ -22,11 +22,15 @@
 	
 	<delete id="delete">
 		delete members
-		where m_email = #{m_email}
+		where m_email = #{m_email} and m_password=#{m_password}
 	</delete>
 	
 	<update id="update">
 		update members set m_email=#{m_email}, m_password=#{m_password}, m_nickname=#{m_nickname}, m_name=#{m_name}, m_phone=#{m_phone}
 		where m_email=#{m_email}
+	</update>
+	
+	<update id="update_pw" parameterType="member">
+		update member set m_password = #{m_password} where m_email = #{m_email}
 	</update>
 </mapper>
