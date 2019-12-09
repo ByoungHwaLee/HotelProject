@@ -3,6 +3,7 @@ package member.model;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class MemberDao {
@@ -27,12 +28,17 @@ public class MemberDao {
 		return member;
 	}
 
-	public void delete(String m_email) {
-		sqlSessionTemplate.delete(namespace + ".delete", m_email);
+	public void delete(Member member) {
+		sqlSessionTemplate.delete(namespace + ".delete", member);
 	}
 
 	public void update(Member member) {
 		sqlSessionTemplate.update(namespace + ".update", member);
+	}
+	
+	@Transactional
+	public int update_pw(Member member) throws Exception{
+		return sqlSessionTemplate.update(namespace + ".update_pw", member);
 	}
 
 }
