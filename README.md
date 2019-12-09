@@ -142,6 +142,7 @@ drop table orderlist;
 create table orderlist(
 onum number primary key,
 oemail varchar2(20),
+oname varchar2(50),
 hname varchar2(20),
 orderdate varchar2(20) default sysdate,
 checkin Date,
@@ -149,6 +150,7 @@ checkout Date,
 people varchar2(20),
 roomtype varchar2(20),
 totalprice varchar2(50),
+comments varchar2(1000),
 checker varchar2(20)
 );
 
