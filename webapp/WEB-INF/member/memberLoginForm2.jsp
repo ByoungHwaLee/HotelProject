@@ -17,6 +17,13 @@
 <link
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet">
+	
+<style type="text/css">
+	.btn-primary{
+		background-color : #0000ac;
+	}
+
+</style>
 
 <script type="text/javascript">
 	function login() {
@@ -54,6 +61,12 @@
 		opener.document.location = "register.mem";
 		self.close();
 	}
+	
+	function findPw() {
+		opener.document.location = "findPw.mem";
+		self.close();
+	}
+	
 </script>
 <body>
 	<div class="container">
@@ -91,13 +104,19 @@
 							<div class="col-md-12 mb-3">
 								<p class="text-center">
 									<a href="javascript:void();" class="google btn mybtn"><i
-										class="fa fa-google-plus"> </i> Signup using Google </a>
+										class="fa fa-google-plus"> </i> Sign up using Google </a>
 								</p>
 							</div>
 							<div class="form-group">
 								<p class="text-center">
 									Don't have account? <a href="#" id="signup"
 										onclick="register()">Sign up here</a>
+								</p>
+							</div>
+							<div class="form-group">
+								<p class="text-center">
+									Don't have account? <a href="#" id="signup"
+										onclick="findPw()">Forget Password?</a>
 								</p>
 							</div>
 						</form>

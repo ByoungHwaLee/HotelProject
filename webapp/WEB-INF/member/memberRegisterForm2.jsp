@@ -19,6 +19,13 @@
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet">
 
+<style type="text/css">
+	.btn-primary{
+		background-color : #0000ac;
+	}
+
+</style>
+
 <script type="text/javascript">
 	function register() {
 		var chk1 = /^[a-zA-Z0-9]{4,12}$/
@@ -123,13 +130,6 @@
 								<button type="button" id="btnSubmit" onclick="register()"
 									class=" btn btn-block mybtn btn-primary tx-tfm">Get
 									Started For Free</button>
-							</div>
-							<div class="col-md-12 ">
-								<div class="form-group">
-									<p class="text-center">
-										<a href="login.mem" id="signin">Already have an account?</a>
-									</p>
-								</div>
 							</div>
 						</form>
 					</div>

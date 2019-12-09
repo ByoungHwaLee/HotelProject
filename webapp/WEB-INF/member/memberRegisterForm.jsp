@@ -11,6 +11,7 @@ memberRegisterForm.jsp<br>
 	}
 </style>
 
+
 <form:form commandName="member"  action="register.mem" method="post">
 	<p>
 		<label for="m_email">이메일</label>
@@ -44,5 +45,6 @@ memberRegisterForm.jsp<br>
 	
 	<p>
 		<input type="submit" value="가입">
+		<a href="main.jsp" value="취소">취소</a>
 	</p>
 </form:form>
