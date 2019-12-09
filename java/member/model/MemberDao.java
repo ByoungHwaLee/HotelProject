@@ -35,10 +35,5 @@ public class MemberDao {
 	public void update(Member member) {
 		sqlSessionTemplate.update(namespace + ".update", member);
 	}
-	
-	@Transactional
-	public int update_pw(Member member) throws Exception{
-		return sqlSessionTemplate.update(namespace + ".update_pw", member);
-	}
 
 }
