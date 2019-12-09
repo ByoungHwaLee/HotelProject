@@ -128,7 +128,7 @@ checked number default 0
 
 
 
-<h2> ORDER 테이블 </h2>
+<h2> ORDER 테이블 - 요청은 *.der</h2>
 drop sequence o_seq;
 create sequence o_seq
 start with 0
