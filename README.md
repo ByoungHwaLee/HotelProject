@@ -124,7 +124,45 @@ regDate varchar2(20),
 checked number default 0
 );
 
+
+
+
+
+<h2> ORDER 테이블 </h2>
+drop sequence o_seq;
+create sequence o_seq
+start with 0
+minvalue 0
+increment by 1
+nocache;
+
+
+
+drop table orderlist;
+create table orderlist(
+onum number primary key,
+oemail varchar2(20),
+hname varchar2(20),
+orderdate varchar2(20) default sysdate,
+checkin Date,
+checkout Date,
+people varchar2(20),
+roomtype varchar2(20),
+totalprice varchar2(50),
+checker varchar2(20)
+);
+
+
+
+
 <hr>
+
+
+
+
+
+
+
 옮기기<br>
 <c:if test="${sessionScope.loginfo == null }">
 			<a href="register.mem" style="float:right; margin:20px;">회원가입</a>
