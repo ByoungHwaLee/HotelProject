@@ -10,8 +10,11 @@
            seller리스트,수정,삭제<br>
     -12/05 seller삽입<br>
     	   FAQ페이지,로그인/비로그인Q&A삽입,리스트<br>
-    -12/06 Q&A, Q&A검색시 익스플로러에서도 문제없도록 수정<br>
+    -12/06 Q&A검색시 익스플로러에서도 문제없도록 수정<br>
     	   member삽입, admin 접근권한설정<br>
+    -12/09 Q&A수정, seller별 hottel리스트,room리스트 <br>
+    -12/10 hottel삽입, Q&A디비수정<br>
+    	  
  <br>
     <hr>
     <br>
