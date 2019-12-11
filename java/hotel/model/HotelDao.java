@@ -5,34 +5,58 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-@Component("myHotelDao")
+@Component("myHotel")
 public class HotelDao {
-
-	private String namespace="hotel.model.Hotel";
+	private final String namespace = "hotel.model.Hotel";
 	
 	@Autowired
-	SqlSessionTemplate sst;
+	SqlSessionTemplate sqlSessionTemplate;
 	
 	public int insertHotel(Hotel hotel) {
-		int cnt=sst.insert(namespace+".insertHotel",hotel);
+		int cnt=sqlSessionTemplate.insert(namespace+".insertHotel",hotel);
 		return cnt;
 	}
 	
-	public List<Hotel> getHotelList() {
-		List<Hotel> hotelList=sst.selectList(namespace+".getHotelList"); 
-		return hotelList;
-	}
-
+	
 	public int getTotalCount() {
-		int totalCount=sst.selectOne(namespace+".getTotalCount");
+		int totalCount=sqlSessionTemplate.selectOne(namespace+".getTotalCount");
 		return totalCount;
 	}
+	
+	
+	/*public List<Hotel> getHotelList() {
+		List<Hotel> hotelList=sqlSessionTemplate.selectList(namespace+".getHotelList"); 
+		return hotelList;
+	}*/
+	
+	public List<Hotel> selectAll(Search search) {
+		// TODO Auto-generated method stub
+		List<Hotel> list = sqlSessionTemplate.selectList(namespace +".getHotelList", search); 
+		return list;
+	}
+
+	public Hotel detailData(String h_name) {
+		// TODO Auto-generated method stub
+		Hotel hotel = sqlSessionTemplate.selectOne(namespace + ".detailData",h_name);
+		return hotel;
+	}
+
+	public List<Hotel> getList(int num) {
+		// TODO Auto-generated method stub
+		List<Hotel> cnt = sqlSessionTemplate.selectList(namespace + ".getThisList", num);
+		return cnt;
+	}
+
 
 	public Hotel getHotelOne(int num) {
-		Hotel hotel=sst.selectOne(namespace+".getHotelOne",num);
+		Hotel hotel=sqlSessionTemplate.selectOne(namespace+".getHotelOne",num);
 		return hotel;
 	}
 	
+	
+	
+	
+	
+
 }
