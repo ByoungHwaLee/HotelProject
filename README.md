@@ -102,8 +102,9 @@ minvalue 0
 increment by 1
 nocache;
 
+drop table sellers;
 create table sellers (
-num number,
+s_num number,
 s_email varchar2(30) primary key,
 s_password varchar2(20),
 s_phone varchar2(20),
