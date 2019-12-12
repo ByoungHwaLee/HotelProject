@@ -5,8 +5,7 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
 	$(function() {
@@ -223,9 +222,9 @@ header를 이곳에 추가
 								<button type="button" class="rightbtn" style="margin-left: 150px;">&raquo;</button>
 						</td>
 
-						<td><span class="htypesearch">${hotel.h_type }</span><a class="hnamesearch" href="hotelDetail.ho?num=${hotel.num }&area=${param.area}&checkin=${param.checkin}&checkout=${param.checkout}&adult=${param.adult}&child=${param.child}&room=${param.room}"><b>${hotel.h_name }</b></a>
+						<td><span class="htypesearch">${hotel.h_type }</span><a class="hnamesearch" href="hotelDetail.ho?h_num=${hotel.h_num }&area=${param.area}&checkin=${param.checkin}&checkout=${param.checkout}&adult=${param.adult}&child=${param.child}&room=${param.room}"><b>${hotel.h_name }</b></a>
 
-							<div class="addsearch">
+							<div class="addsearch">  
 								<b>${hotel.h_address1 },&nbsp;${hotel.h_nation }</b>
 							</div>
 
