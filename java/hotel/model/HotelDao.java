@@ -49,14 +49,16 @@ public class HotelDao {
 	}
 
 
-	public Hotel getHotelOne(int num) {
-		Hotel hotel=sqlSessionTemplate.selectOne(namespace+".getHotelOne",num);
+	public Hotel getHotelOne(int h_num) {
+		Hotel hotel=sqlSessionTemplate.selectOne(namespace+".getHotelOne",h_num);
 		return hotel;
 	}
-	
-	
-	
-	
+
+
+	public int updateHotel(Hotel hotel) {
+		int cnt=sqlSessionTemplate.update(namespace+".updateHotel",hotel);
+		return cnt;
+	}
 	
 
 }

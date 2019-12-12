@@ -8,33 +8,29 @@ public class Room {
 	private int[] person;
 	private int[] stock;
 	
+	private int r_num;
+	private int h_num;
 	private String r_type;
 	private int r_price;
 	private int r_person;
 	private int r_stock;
 	private String r_breakfast;
-	private String hname;
-	
+	private String originHname;
 	
 	public Room() {
 		super();
 		
 	}
 
-
-	public Room(String r_type, int r_price, int r_person, int r_stock, String r_breakfast, String hname) {
+	public Room(String r_type, int r_price, int r_person, int r_stock, String r_breakfast, int h_num) {
 		super();
 		this.r_type = r_type;
 		this.r_price = r_price;
 		this.r_person = r_person;
 		this.r_stock = r_stock;
 		this.r_breakfast = r_breakfast;
-		this.hname = hname;
+		this.h_num = h_num;
 	}
-
-
-
-
 
 	public String[] getType() {
 		return type;
@@ -94,6 +90,16 @@ public class Room {
 		this.stock = stock;
 	}
 
+	
+
+	public int getR_num() {
+		return r_num;
+	}
+
+
+	public void setR_num(int r_num) {
+		this.r_num = r_num;
+	}
 
 
 	public String getR_type() {
@@ -155,15 +161,23 @@ public class Room {
 	}
 
 
-
-	public String getHname() {
-		return hname;
+	public int getH_num() {
+		return h_num;
 	}
 
 
+	public void setH_num(int h_num) {
+		this.h_num = h_num;
+	}
 
-	public void setHname(String hname) {
-		this.hname = hname;
+
+	public String getOriginHname() {
+		return originHname;
+	}
+
+
+	public void setOriginHname(String originHname) {
+		this.originHname = originHname;
 	}
 	
 	
