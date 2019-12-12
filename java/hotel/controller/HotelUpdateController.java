@@ -132,7 +132,7 @@ public class HotelUpdateController {
 			}
 			hotel.setH_image(image);
 			hotelDao.updateHotel(hotel);
-		
+		///room 
 		return gotoPage;
 	}
 	
