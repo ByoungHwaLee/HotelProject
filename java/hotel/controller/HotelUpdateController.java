@@ -27,7 +27,7 @@ public class HotelUpdateController {
 
 	private final String command="/updateHotel.ho";
 	private final String getPage="hotelUpdateForm";
-	private final String gotoPage="redirect:Search.ho";
+	private final String gotoPage="redirect:hotelNow.ho";
 	
 	@Autowired
 	private HotelDao hotelDao;
