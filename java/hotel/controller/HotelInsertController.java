@@ -89,7 +89,6 @@ public class HotelInsertController {
 			int person=rooms.getPerson()[i];
 			int stock=rooms.getStock()[i];
 			String breakfast=rooms.getBreakfast()[i];
-			System.out.println(hotel.getH_num());
 			int h_num=hotel.getH_num();
 			
 			Room room=new Room(type,price,person,stock,breakfast,h_num);
