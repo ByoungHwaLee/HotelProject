@@ -19,9 +19,8 @@
 	}
 
 
-
 	$(function(){
-		var str="<tr><td><input type='text' name='type'></td>"+
+		var str="<tr><td><input type='hidden' name='num'><input type='text' name='type'></td>"+
 		"<td><input type='text' name='person'></td>" +
 		"<td><input type='text' name='price'></td>" +
 		"<td><input type='text' name='stock'></td>" +
@@ -36,14 +35,15 @@
 			$("#roomtable").append(str);
 		});
 		$("#roomtable").on("click",".removebtn",function(){
-			$(this).closest("tr").remove();
+			$(this).closest("tr").attr("style","display:none");
+			$(this).closest("tr").find("input[name=type]").attr("value","remove_thisroom");
 		});
 		
 		$("input[type='file']").change(function(e){
 			$("#preview").empty();
 			var files=e.target.files; //fileList 객체
 			var arr=Array.prototype.slice.call(files);
-			preview(arr);
+			preview(arr);  
 		});
 		function preview(arr){
 			arr.forEach(function(f){
@@ -174,7 +174,7 @@
 		</tr>
 		<c:forEach items="${hotel.rooms }" var="room" varStatus="status">
 		<tr>
-			<td><input type="text" name="type" placeholder="일반룸" value="${room.r_type }"></td>
+			<td><input type="hidden" name="num" value="${room.r_num }"><input type="text" name="type" placeholder="일반룸" value="${room.r_type }"></td>
 			<td><input type="text" name="person" placeholder="3" value="${room.r_person }"></td>
 			<td><input type="text" name="price" placeholder="80000" value="${room.r_price }"></td>
 			<td><input type="text" name="stock" placeholder="3" value="${room.r_stock }"></td>
