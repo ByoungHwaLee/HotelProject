@@ -12,6 +12,7 @@ import hotel.model.Hotel;
 import hotel.model.HotelDao;
 import hotel.model.Room;
 import hotel.model.RoomDao;
+import hotel.model.Search;
 
 @Controller
 public class HotelDetailController {
@@ -26,13 +27,19 @@ public class HotelDetailController {
 	private RoomDao roomDao;
 	
 	@RequestMapping(command)
-	public String hotelDetail(@RequestParam("h_num") int h_num,Model model) {
+	public String hotelDetail(@RequestParam("h_num") int h_num,Search search,Model model) {
 		
 		Hotel hotel=hotelDao.getHotelOne(h_num);
 		List<Room> rooms=roomDao.getRoomList(hotel);
 		hotel.setRooms(rooms);
-		hotel.setImages(hotel.getH_image().split(";"));
+		if(hotel.getH_image()!=null) {
+			hotel.setImages(hotel.getH_image().split(";"));
+		}
 		
+		String address=hotel.getH_address1().substring(0,hotel.getH_address1().indexOf("(")-1);
+		hotel.setH_address1(address);
+		
+		model.addAttribute("search",search);
 		model.addAttribute("hotel",hotel);
 		model.addAttribute("rooms",rooms);
 		
