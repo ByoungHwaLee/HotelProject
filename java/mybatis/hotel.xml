@@ -18,7 +18,7 @@
 	<select id="getHotelList" resultType="MyHotel">
 		select * from hotel
 		<if test="area!=null and !area.equals('')">
-			where h_address1 like #{area}
+			where h_address1 like '%' || #{area} || '%'
 			<if test="filterType!=null and !filterType.equals('')">
 				and
 				<foreach collection="filters" item="item" separator="or"  >
@@ -64,5 +64,12 @@
 		h_hotel_url=#{h_hotel_url}, h_comment=#{h_comment}
 		where h_num=#{h_num}
 	</update>
-  
+  	
+  	<delete id="deleteHotel">
+  		delete from hotel where h_num=#{h_num}
+  	</delete>
+  	
+  	<select id="getAllLists" resultType="MyHotel">
+		select * from hotel
+	</select>
   </mapper>
