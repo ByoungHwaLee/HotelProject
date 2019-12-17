@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="order.model.MainOrder">
+  	
+  	<insert id="insertOrders">
+  		insert into mainorder
+  		values(o_seq.nextval,#{m_num }, sysdate, #{o_checkin }, #{o_checkout }, #{o_totalpeople  }, #{o_comment },0,#{o_engname  })
+  	
+  	</insert>
+  	
+  	<select id="getMaxNum" resultType="int">
+  		select max(o_num) from mainorder
+  	</select>
+  	
+  	<select id="getSellerOrders" resultType="MyMainOrder">
+  		select * from mainorder
+  	</select>
+  	
+  	<select id="getMemberOrders" resultType="MyMainOrder">
+  		select * from mainorder
+  		where m_num = #{m_num}
+  	
+  	</select>
+  	
+  	<update id="updateChecker">
+	  	update mainorder
+	  	set o_checker = 1
+	  	where o_num = #{onum}
+  	</update>
+  
+  	<delete id="deleteMOrder">
+  		delete from mainorder
+  		where o_num=#{o_num}
+  	</delete>
+  
+  </mapper>
