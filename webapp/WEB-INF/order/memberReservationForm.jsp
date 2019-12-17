@@ -144,7 +144,7 @@ color: black;
 	</tr>
 	<tr>
 		<td>
-			<button class="button" type="button">결제취소</button>
+			<button class="button" type="button" onclick="location.href='deleteOrder.der?o_num=${mo.o_num}'">결제취소</button>
 		
 		</td>
 	</tr>
