@@ -7,14 +7,15 @@ public class Room {
 	private String[] breakfast;
 	private int[] person;
 	private int[] stock;
+	private String[] num;
 	
 	private int r_num;
 	private int h_num;
 	private String r_type;
 	private int r_price;
 	private int r_person;
-	private int r_stock;
 	private String r_breakfast;
+	private int r_stock;
 	private String originHname;
 	
 	public Room() {
@@ -30,6 +31,18 @@ public class Room {
 		this.r_stock = r_stock;
 		this.r_breakfast = r_breakfast;
 		this.h_num = h_num;
+	}
+	
+	
+
+	public Room(int r_num, String r_type, int r_price, int r_person, int r_stock, String r_breakfast) {
+		super();
+		this.r_num = r_num;
+		this.r_type = r_type;
+		this.r_price = r_price;
+		this.r_person = r_person;
+		this.r_stock = r_stock;
+		this.r_breakfast = r_breakfast;
 	}
 
 	public String[] getType() {
@@ -91,6 +104,14 @@ public class Room {
 	}
 
 	
+
+	public String[] getNum() {
+		return num;
+	}
+
+	public void setNum(String[] num) {
+		this.num = num;
+	}
 
 	public int getR_num() {
 		return r_num;
