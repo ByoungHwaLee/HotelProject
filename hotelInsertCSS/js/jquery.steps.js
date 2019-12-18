@@ -1055,24 +1055,24 @@ function renderPagination(wizard, options, state)
     if (options.enablePagination)
     {
         var pagination = "<{0} class=\"actions {1}\"><ul role=\"menu\" aria-label=\"{2}\">{3}</ul></{0}>",
-            buttonTemplate = "<li><a href=\"#{0}\" role=\"menuitem\">{1}</a></li>",
+            buttonTemplate = "<li><a href=\"#{0}\" ",
             buttons = "";
 
         if (!options.forceMoveForward)
         {
-            buttons += buttonTemplate.format("previous", options.labels.previous);
+            buttons += buttonTemplate.format("#previous")+"role=\"menuitem\">"+options.labels.previous+"</a></li>";
         }
 
-        buttons += buttonTemplate.format("next", options.labels.next);
+        buttons += buttonTemplate.format("#next")+"role=\"menuitem\">"+options.labels.next+"</a></li>";
 
         if (options.enableFinishButton)
         {
-            buttons += buttonTemplate.format("finish", options.labels.finish);
+            buttons += buttonTemplate.format("#finish")+"onclick=\"submitHotel()\" role=\"menuitem\">"+options.labels.finish+"</a></li>";
         }
 
         if (options.enableCancelButton)
         {
-            buttons += buttonTemplate.format("cancel", options.labels.cancel);
+            buttons += buttonTemplate.format("#cancel")+"role=\"menuitem\">"+options.labels.cancel+"</a></li>";
         }
 
         wizard.append(pagination.format(options.actionContainerTag, options.clearFixCssClass,

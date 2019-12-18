@@ -15,4 +15,8 @@ $(function(){
             current : ''
         },
     })
+
 });
+function submitHotel(){
+    $("#hotelInsertForm").submit();
+};
