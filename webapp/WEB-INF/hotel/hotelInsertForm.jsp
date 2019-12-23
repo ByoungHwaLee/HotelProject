@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +16,21 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 <!-- Main Style Css -->
 <link rel="stylesheet" href="resources/hotelInsert/css/style.css"/>
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script>
+	
+	$(function(){
+		var session="${selLoginfo}";
+		if(session=="" || session==null){
+			alert("로그인이 필요합니다");
+			location.href="selMain.sel";
+		}
+	});
+
+</script>
+
 </head>
-<body>  
+<body>
+<%@include file="../common/selHeader.jsp"%>	
 <div class="insertHotel-wrapper">
 	<div class="insertHotel-content">
 		<div class="wizard-form">
@@ -31,20 +44,21 @@
 			        <section>
 						<div class="inner">
 		                	<div class="wizard-header">
-								<h3 class="heading">Hotel Register</h3>
-								<p>Please enter your hotel information and  proceed to the next step so we can build hotel detail. </p>
+								<h3 class="heading">호텔 등록</h3>
+								<!-- <p>Please enter your hotel information and  proceed to the next step so we can build hotel detail. </p> -->
+								<p>호텔 정보를 입력하고 다음 단계를 진행하여 호텔 세부 정보를 작성하십시오.</p>
 							</div>
 							<div class="form-row">
 								<div class="form-holder">
 									<fieldset>
 										<legend>Hotel Name</legend>
-										<input type="text" class="form-control" name="h_name" placeholder="Hotel Name" required>
+										<input type="text" class="form-control" name="h_name" placeholder="호텔 이름">
 									</fieldset>
 								</div>
 								<div class="form-holder">
 									<fieldset> 
 										<legend>Nation</legend>
-										<input type="text" class="form-control" name="h_nation" placeholder="Nation" required>
+										<input type="text" class="form-control" name="h_nation" placeholder="국가">
 									</fieldset>
 								</div>
 							</div>
@@ -52,7 +66,7 @@
 								<div class="form-holder">
 									<fieldset>
 										<legend>Postcode</legend>
-										<input type="text" id="postcode" class="form-control" placeholder="postcode" readonly="readonly">
+										<input type="text" class="form-control" id="postcode" name="h_postcode" placeholder="우편번호" readonly="readonly">
 									</fieldset>
 								</div>
 								<div style="padding-top:17px">
@@ -63,7 +77,7 @@
 						  		<div class="form-holder form-holder-2">
 									<fieldset>
 										<legend>Address</legend>
-										<input type="text" class="form-control" id="address" name="h_address1" placeholder="address" readonly="readonly">
+										<input type="text" class="form-control" id="address" name="h_address1" placeholder="주소" readonly="readonly">
 									</fieldset>
 								</div>
 							</div>
@@ -71,7 +85,7 @@
 								<div class="form-holder form-holder-2">
 									<fieldset>
 										<legend>AddressDetail</legend>
-										<input type="text" class="form-control" id="detailAddress" name="h_address2" placeholder="addressDetail">
+										<input type="text" class="form-control" id="detailAddress" name="h_address2" placeholder="상세주소">  
 									</fieldset>
 								</div>
 							</div>
@@ -172,8 +186,7 @@
 								<div class="form-holder">
 										<legend>hotel type</legend>
 										<select name="h_type">
-											<option value="none" disabled selected>none</option>
-											<option value="호텔">호텔</option>
+											<option value="호텔" selected>호텔</option>
 											<option value="게스트하우스">게스트하우스</option>
 											<option value="아파트">아파트</option>
 											<option value="모텔">모텔</option>
@@ -183,12 +196,12 @@
 								<div class="form-holder">
 									<legend>hotel grade</legend>
 									<select name="h_grade">
-										<option value="0" disabled selected>none</option>
-										<option value="2">1등급</option>
-										<option value="3">2등급</option>
-										<option value="4">3등급</option>
+										<option value="0">없음</option>
+										<option value="1">1등급</option>
+										<option value="2">2등급</option>
+										<option value="3">3등급</option>
 										<option value="4">4등급</option>
-										<option value="4">5등급</option>
+										<option value="5">5등급</option>
 									</select>
 								</div>
 							</div>
@@ -196,7 +209,7 @@
 								<div class="form-holder form-holder-2">
 									<fieldset>
 										<legend>Hotel Phone</legend>
-										<input type="text" class="form-control" id="phone" name="h_phone" placeholder="+1 888-999-7777" required>
+										<input type="text" class="form-control" name="h_phone" placeholder="호텔전화번호"> 
 									</fieldset>
 								</div>
 							</div>
@@ -204,7 +217,7 @@
 								<div class="form-holder form-holder-2">
 									<fieldset>
 										<legend>Hotel Url</legend>
-										<input type="text" class="form-control" id="url" name="h_hotel_url" placeholder="www.naver.com">
+										<input type="text" class="form-control" name="h_hotel_url" placeholder="호텔사이트주소">
 									</fieldset>
 								</div>
 							</div>
@@ -218,14 +231,14 @@
 			            <section>
 			                <div class="inner">
 			                	<div class="wizard-header">
-									<h3 class="heading">Hotel Detail</h3>
-									<p>Please enter hotel detail and proceed to the next step so we can build Rooms.</p>
+									<h3 class="heading">호텔 상세</h3>
+									<p>호텔 세부 정보를 입력하고 다음 단계를 진행하여 객실 정보를 작성하십시오.</p>
 								</div>
 								<div class="form-row">
 									<div class="form-holder form-holder-2">
 										<fieldset>
 											<legend>Support Language</legend>
-											<input type="text" class="form-control" id="h_language" placeholder="한국어,영어,중국어" name="h_language">
+											<input type="text" class="form-control" placeholder="한국어,영어,중국어" name="h_language">
 										</fieldset>
 									</div>	
 								</div>
@@ -233,7 +246,7 @@
 									<div class="form-holder">
 											<legend>Internet</legend>
 											<select name="h_internet">
-												<option value="none" disabled selected>none</option>
+												<option value="" selected>선택</option>
 												<option value="유료 인터넷">유료</option>
 												<option value="무료 인터넷">무료</option>
 											</select>
@@ -241,7 +254,7 @@
 									<div class="form-holder">
 										<legend>Animal</legend>
 										<select name="h_animal">
-											<option value="none" disabled selected>none</option>
+											<option value="" selected>선택</option>
 											<option value="가능">가능</option>
 											<option value="불가능">불가능</option>
 										</select>
@@ -249,7 +262,7 @@
 									<div class="form-holder">
 										<legend>Parking</legend>
 										<select name="h_parking">
-											<option value="none" disabled selected>none</option>
+											<option value="" selected>선택</option>
 											<option value="유료주차">유료주차</option>
 											<option value="무료주차">무료주차</option>
 											<option value="주차불가">주차불가</option>
@@ -258,7 +271,7 @@
 									<div class="form-holder">
 										<legend>Smoking</legend>
 										<select name="h_smoke">
-											<option value="none" disabled selected>none</option>
+											<option value="" selected>선택</option>
 											<option value="건물외">건물외</option>
 											<option value="건물내">건물내</option>
 											<option value="흡연불가">흡연불가</option>
@@ -266,7 +279,7 @@
 									</div>
 								</div>
 								<div class="form-holder">
-										<label class="special-label">Facilities:</label>
+										Facilities:<input type="checkbox"  name="h_facilities" value="없음" style="display: none;" checked>
 								</div>
 								<div class="form-row">
 								      <div class="form-holder"> 
@@ -433,17 +446,17 @@
 								<div class="form-row">  
 									<div class="form-holder">  
 										<legend>hotel description</legend>    
-										<textarea rows="6" cols="53" style="font-size:1em;border:  2px solid #e5e5e5;border-radius: 4px;" name="h_comment" form="hotelInsertForm" placeholder="Hotel Description"></textarea>
+										<textarea rows="6" cols="53" style="font-size:1em;border:  2px solid #e5e5e5;border-radius: 4px;" name="h_comment" form="hotelInsertForm" placeholder="추가설명"></textarea>
 									</div>
 								</div>         
-								<div class="form-row">
+								<div class="form-row"> 
 									<div class="form-holder" style="margin-bottom:0">
 										<label for="file">Hotel Images</label><input multiple="multiple" type="file" name="file">
 									</div>    
 								</div> 
 									<div class="form-holder" >
 										<fieldset style="border:  2px solid #e5e5e5;border-radius: 4px;">
-											<legend style="font-size: 11px;font-weight: 700;color: #999;">Preview</legend>
+											<legend style="font-size: 11px;font-weight: 700;color: #999;">Preview Images</legend>
 											<div id="preview"></div>  
 										</fieldset> 
 									</div>
@@ -458,18 +471,19 @@
 										function preview(arr){
 											arr.forEach(function(f){
 												var fileName=f.name;
-												if(fileName.length>10){ 
+												if(fileName.length>15){ 
 													fileName=fileName.substring(0,7)+"...";
-												}  
+												}
 												var str="";
 												var reader=new FileReader();
 												reader.onload=function(e){
 													str='<div style="display:inline-flex; padding:10px">';
 													str+='<li><span>'+fileName+'</span><br>';
 													str+='<img src="'+e.target.result+'" title="'+f.name+'" width=150 height=150 />'
+										    
 													str+='</li></div>';
 													$("#preview").append(str);
-												};
+												};  
 												reader.readAsDataURL(f);
 											});
 											
@@ -487,8 +501,8 @@
 			            <section>
 			                <div class="inner">
 			                	<div class="wizard-header">
-									<h3 class="heading">Room Register</h3>
-									<p>Please enter room infomation and proceed to the next step so you can register your hotel and rooms</p>
+									<h3 class="heading">객실 등록</h3>
+									<p>호텔 및 객실을 등록할 수 있도록 객실 정보를 입력하고 다음 단계로 진행하십시오.</p>
 								</div>
 							<div id="room-insert">
 								<div id="one-of-rooms">
@@ -496,38 +510,41 @@
 				                		<div class="form-holder">
 				                			<fieldset>
 												<legend>Room Type</legend>
-												<input type="text" class="form-control" id="type" name="type" placeholder="Room Type" required>
+												<input type="text" class="form-control" name="type" placeholder="객실 유형(일반,디럭스..)" >
 											</fieldset>			                			
 				                		</div>
 				                		<div class="form-holder">
-											<fieldset>
+											<fieldset> 
 												<legend>Room Price</legend>
-												<input type="text" class="form-control" id="price" name="price" placeholder="Room Price" required>
+												<input type="text" class="form-control" name="price" placeholder="객실 가격(1박)">
 											</fieldset>
 										</div>
 				                	</div>
 				                	<div class="form-row">
 				                		<div class="form-holder">
-											<fieldset>
+											<fieldset>   
 												<legend>Person</legend>
-												<input type="text" class="form-control" id="person" name="person" placeholder="Person" required>
+												<input type="text" class="form-control" name="person" placeholder="정원(4)">
 											</fieldset>
 										</div>
 										<div class="form-holder">
 											<fieldset>
 												<legend>Breakfast</legend>
-												<input type="text" class="form-control" id="breakfast" name="breakfast" placeholder="Y/N" required>
+												<input type="text" class="form-control" name="breakfast" placeholder="유/무">  
 											</fieldset>
 										</div>
 										<div class="form-holder">
 											<fieldset>
 												<legend>Count</legend>
-												<input type="text" class="form-control" id="stock" name="stock" placeholder="Count" required>
+												<input type="text" class="form-control" name="stock" placeholder="객실수">
 											</fieldset>
 										</div>
 										<div class="form-holder">
-											<button type="button" class="addbtn">객실추가</button>
+											<div style="padding-top:17px">
+												<button type="button" class="btn btn-success addbtn">추가</button>
+											</div>  
 										</div>
+									
 				                	</div>
 				                </div>
 			                </div>	
@@ -538,13 +555,13 @@
 						                		'<div class="form-holder">'+
 						                			'<fieldset>'+
 														'<legend>Room Type</legend>'+
-														'<input type="text" class="form-control" id="type" name="type" placeholder="Room Type" required>'+
+														'<input type="text" class="form-control" name="type" placeholder="객실 유형(일반,디럭스..)">'+
 													'</fieldset>'+			                			
 						                		'</div>'+
 						                		'<div class="form-holder">'+
 													'<fieldset>'+
 														'<legend>Room Price</legend>'+
-														'<input type="text" class="form-control" id="price" name="price" placeholder="Room Price" required>'+
+														'<input type="text" class="form-control" name="price" placeholder="객실 가격(1박)">'+
 													'</fieldset>'+
 												'</div>'+
 						                	'</div>'+
@@ -552,23 +569,25 @@
 						                		'<div class="form-holder">'+
 													'<fieldset>'+
 														'<legend>Person</legend>'+
-														'<input type="text" class="form-control" id="person" name="person" placeholder="Person" required>'+
+														'<input type="text" class="form-control" name="person" placeholder="정원(4)">'+
 													'</fieldset>'+
 												'</div>'+
 												'<div class="form-holder">'+
 													'<fieldset>'+
 														'<legend>Breakfast</legend>'+
-														'<input type="text" class="form-control" id="breakfast" name="breakfast" placeholder="Y/N" required>'+
+														'<input type="text" class="form-control" name="breakfast" placeholder="유/무">'+
 													'</fieldset>'+
 												'</div>'+
 												'<div class="form-holder">'+
 													'<fieldset>'+
 														'<legend>Count</legend>'+
-														'<input type="text" class="form-control" id="stock" name="stock" placeholder="Count" required>'+
+														'<input type="text" class="form-control" name="stock" placeholder="객실수">'+
 													'</fieldset>'+
 												'</div>'+
 												'<div class="form-holder">'+
-													'<button type="button" class="removebtn">객실삭제</button>'+
+													'<div style="padding-top:17px">'+
+														'<button type="button" class="btn btn-success removebtn">삭제</button>'+
+													'</div>'+  
 												'</div>'+
 						                	'</div>'+
 						                '</div>';
@@ -585,7 +604,7 @@
 									<div class="form-holder">
 										<fieldset>
 											<legend>Total RoomNumber</legend>
-											<input type="text" class="form-control" id="h_room_num" name="h_room_num" placeholder="Number of Rooms" required>
+											<input type="text" class="form-control" name="h_room_num" placeholder="Number of Rooms" value=0>
 										</fieldset>
 									</div>
 								</div>
@@ -596,6 +615,7 @@
 			</div>
 		</div>
 	</div>
+	<%@include file="../common/selFooter.jsp"%>
 <!-- <script src="resources/hotelInsert/js/jquery-3.3.1.min.js"></script> -->
 <script src="resources/hotelInsert/js/jquery.steps.js"></script>
 <script src="resources/hotelInsert/js/main.js"></script>

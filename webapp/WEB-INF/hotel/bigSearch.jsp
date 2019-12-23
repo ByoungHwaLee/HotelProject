@@ -225,7 +225,8 @@ header를 이곳에 추가
 						<td><span class="htypesearch">${hotel.h_type }</span><a class="hnamesearch" href="hotelDetail.ho?h_num=${hotel.h_num }&area=${param.area}&checkin=${param.checkin}&checkout=${param.checkout}&adult=${param.adult}&child=${param.child}&room=${param.room}"><b>${hotel.h_name }</b></a>
 
 							<div class="addsearch">  
-								<b>${hotel.h_address1 },&nbsp;${hotel.h_nation }</b>
+							<c:set value="${hotel.h_address1 }" var="h_address1"/>
+								<b>${fn:substringBefore(h_address1," ")},&nbsp;${hotel.h_nation }</b>
 							</div>
 
 							<div>${hotel.h_comment }</div>
@@ -254,9 +255,9 @@ header를 이곳에 추가
 
 					<p class="searcharea-p scheduler">
 						<i class="material-icons">event</i>&nbsp;
-						<input name="checkin" type="text" id="datepicker" placeholder="체크인" value="${search.checkin }"><br>
+						<input name="checkin" type="text" id="datepicker" placeholder="체크인" value="${search.checkin }" autocomplete="off"><br>
 						<i class="material-icons">event</i>&nbsp;
-						<input name="checkout" type="text" id="datepicker2" placeholder="체크아웃" value="${search.checkout }">
+						<input name="checkout" type="text" id="datepicker2" placeholder="체크아웃" value="${search.checkout }" autocomplete="off">
 					</p>
 
 					<div id="person" class="searcharea-p">

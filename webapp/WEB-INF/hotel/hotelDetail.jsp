@@ -518,13 +518,8 @@ table {
 			<td>
 				<div id="hotelcomment">
 					<a>${hotel.h_nation } 추천 숙소</a><br>
-			
-					<pre>
-					라마다 앙코르 서귀포 호텔은 레스토랑, 카페, 피트니스 센터 및 비즈니스 시설을 운영하고 있으며,
-					 제주 월드컵경기장에서 차로 단 5분 거리에 있습니다. 이 호텔은 공용 공간에 Wi-Fi를 제공하며,
-					  무료 구내 주차장을 보유하고 있습니다.
-					${hotel.h_comment }
-					</pre> 
+					
+					<textarea  rows="6" cols="53" style="font-size:1em;border:none;">${hotel.h_comment }</textarea>
 				</div>
 			</td>
 			<td>
@@ -545,7 +540,7 @@ table {
 		<h2>호텔 시설</h2>
 		<div class="hoteloption-list">
 				
-			<p class="facilities"><span style="font-weight: bold">편의시설&nbsp;</span>${hotel.h_facilities}</p><hr style="margin:0; width: 95%;">
+			<p class="facilities"><span style="font-weight: bold">편의시설&nbsp;&nbsp;&nbsp;&nbsp;</span>${hotel.h_facilities}</p><hr style="margin:0; width: 95%;">
 			<p class="internet"><span style="font-weight: bold">인터넷&nbsp;&nbsp;&nbsp;&nbsp;</span>${hotel.h_internet}</p><hr style="margin:0;">
 			<p class="animal"><span style="font-weight: bold" >반려동물&nbsp;&nbsp;&nbsp;&nbsp;</span>${hotel.h_animal}</p><hr style="margin:0; ">
 			<p class="parking"><span style="font-weight: bold">주차&nbsp;&nbsp;&nbsp;&nbsp;</span>${hotel.h_parking}</p><hr style="margin:0; ">
@@ -633,7 +628,7 @@ table {
 				<td class="rselect">
 					<select class="selectroom" >
 						<option selected value="0">0
-					<c:forEach begin="0" end="${room.r_stock }" varStatus="i"> 
+					<c:forEach begin="1" end="${room.r_stock }" varStatus="i"> 
 						
 						<c:set var="price" value="${room.r_price }" />
 						<fmt:formatNumber value="${price}" type="number" var="numberType" />
