@@ -20,3 +20,7 @@ $(function(){
 function submitHotel(){
     $("#hotelInsertForm").submit();
 };
+
+function validator(){
+	alert("dd");
+};

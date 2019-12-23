@@ -1,7 +1,7 @@
 body {
 	margin:  0;
 }
-
+  
 /* Hide original checkboxes. They are ugly! */
 input.labelauty { 
    display: none; 
@@ -260,14 +260,31 @@ fieldset:disabled a.btn {
 	-moz-justify-content: center;
 	-webkit-justify-content: center;
 	align-items: center;
-	-o-align-items: center;
+	-o-align-items: center;  
 	-ms-align-items: center;
 	-moz-align-items: center;
 	-webkit-align-items: center;
-    background-image: -moz-linear-gradient( 136deg, rgb(116,235,213) 0%, rgb(63,43,150) 100%);
+   /*  background-image: -moz-linear-gradient( 136deg, rgb(116,235,213) 0%, rgb(63,43,150) 100%);
     background-image: -webkit-linear-gradient( 136deg, rgb(116,235,213) 0%, rgb(63,43,150) 100%);
-    background-image: -ms-linear-gradient( 136deg, rgb(116,235,213) 0%, rgb(63,43,150) 100%);
+    background-image: -ms-linear-gradient( 136deg, rgb(116,235,213) 0%, rgb(63,43,150) 100%); */
+    /* background: url(../../img/gro.jpg) no-repeat center; 
+    background-size: cover; */
+    position:relative;
+    
 }
+.insertHotel-wrapper::after{
+	content:"";
+	background: url(../../img/gro.jpg);
+	background-size:cover; 
+	opacity:0.9;   
+	top:0;  
+	left:0;
+	bottom:0;
+	right:0;
+	position:absolute;
+	z-index:-1;
+}
+
 .insertHotel-content  {
 	background: #fff;  
 	width: 820px; 
