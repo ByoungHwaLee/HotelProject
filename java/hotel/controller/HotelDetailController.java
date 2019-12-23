@@ -13,6 +13,8 @@ import hotel.model.HotelDao;
 import hotel.model.Room;
 import hotel.model.RoomDao;
 import hotel.model.Search;
+import order.model.MainOrder;
+import order.model.MainOrderDao;
 
 @Controller
 public class HotelDetailController {
@@ -26,6 +28,9 @@ public class HotelDetailController {
 	@Autowired
 	private RoomDao roomDao;
 	
+	@Autowired
+	private MainOrderDao moDao;
+	
 	@RequestMapping(command)
 	public String hotelDetail(@RequestParam("h_num") int h_num,Search search,Model model) {
 		
@@ -35,13 +40,22 @@ public class HotelDetailController {
 		if(hotel.getH_image()!=null) {
 			hotel.setImages(hotel.getH_image().split(";"));
 		}
+		if(hotel.getH_address1().indexOf("(")!=-1) {
+			String address=hotel.getH_address1().substring(0,hotel.getH_address1().indexOf("(")-1);
+			hotel.setH_address1(address);
+		}
+		if(hotel.getH_facilities().length()>2) {
+			String facil=hotel.getH_facilities().substring(3);  
+			hotel.setH_facilities(facil);	
+		}
 		
-		String address=hotel.getH_address1().substring(0,hotel.getH_address1().indexOf("(")-1);
-		hotel.setH_address1(address);
-		
+		///////////////////////////////////////////////////////////	
+	      
+
 		model.addAttribute("search",search);
 		model.addAttribute("hotel",hotel);
 		model.addAttribute("rooms",rooms);
+		
 		
 		return getPage;
 	}

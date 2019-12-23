@@ -6,11 +6,12 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
-
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,8 +22,6 @@ import hotel.model.HotelDao;
 import hotel.model.Room;
 import hotel.model.RoomDao;
 import seller.model.Seller;
-
-
 
 @Controller
 public class HotelInsertController {
@@ -42,6 +41,8 @@ public class HotelInsertController {
 	
 	@RequestMapping(value=command,method=RequestMethod.GET)
 	public String insertGet(HttpSession session,Model model) {
+		Seller login=(Seller)session.getAttribute("selLoginfo");
+		System.out.println(login);
 		return getPage;
 	}
 	

@@ -27,7 +27,7 @@ public class HotelUpdateController {
 
 	private final String command="/updateHotel.ho";
 	private final String getPage="hotelUpdateForm";
-	private final String gotoPage="redirect:hotelNow.ho";
+	private final String gotoPage="redirect:hotelNow.der";
 	
 	@Autowired
 	private HotelDao hotelDao;
@@ -54,7 +54,7 @@ public class HotelUpdateController {
 			Room rooms,Hotel hotel,
 			MultipartHttpServletRequest mpfRequest,HttpSession session) {
 			  
-			
+		
 			List<MultipartFile> fileList=mpfRequest.getFiles("file");
 			String originfilePath=application.getRealPath("/resources/Hotelimages/"+originName);
 			String newfilePath=application.getRealPath("/resources/Hotelimages/"+hotel.getH_name());
@@ -132,8 +132,9 @@ public class HotelUpdateController {
 					}
 				}
 			}else {
-				image+=hotel.getH_image();
+				image+=hotelDao.getHotelOne(hotel.getH_num()).getH_image();
 			}
+			System.out.println(image);
 			hotel.setH_image(image);
 			hotelDao.updateHotel(hotel);  
 			System.out.println("호텔수정완료");

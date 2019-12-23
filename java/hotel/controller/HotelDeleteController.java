@@ -17,7 +17,7 @@ import hotel.model.RoomDao;
 public class HotelDeleteController {
 
 	private final String command = "/deleteHotel.ho";
-	private final String getPage = "redirect:hotelNow.ho";
+	private final String getPage = "redirect:hotelNow.der";
 
 	@Autowired
 	private HotelDao hotelDao;
