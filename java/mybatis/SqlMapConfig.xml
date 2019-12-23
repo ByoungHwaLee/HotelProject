@@ -2,27 +2,26 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
-  
-<configuration>
-	
-	<typeAliases>
-		<typeAlias type="admin.model.Admin" alias="MyAdmin"/>
-		<typeAlias type="hotel.model.Hotel" alias="MyHotel"/>
-		<typeAlias type="seller.model.Seller" alias="MySeller"/>  
-		<typeAlias type="member.model.Member" alias="MyMember"/>
-		<typeAlias type="hotel.model.Room" alias="MyRoom"/>
-		<typeAlias type="hotel.model.Search" alias="MySearch"/>
-		<typeAlias type="order.model.Order" alias="MyOrder"/>
-		
-	</typeAliases>
-	
-	<mappers>
-		<mapper resource="mybatis/admin.xml"/>
-		<mapper resource="mybatis/hotel.xml"/>
-		<mapper resource="mybatis/member.xml"/>
-		<mapper resource="mybatis/seller.xml"/>
-		<mapper resource="mybatis/room.xml"/>
-		<mapper resource="mybatis/order.xml"/>
-	</mappers>
-
-</configuration>
+ <configuration>
+ 	<typeAliases>
+      <typeAlias type="member.model.Member" alias="MyMember"/>
+       <typeAlias type="seller.model.Seller" alias="MySeller"/>
+       <typeAlias type="hotel.model.Hotel" alias="MyHotel"/>
+       <typeAlias type="admin.model.Admin" alias="MyAdmin"/>
+       <typeAlias type="hotel.model.Room" alias="MyRoom"/>
+       <typeAlias type="order.model.MainOrder" alias="MyMainOrder"/>
+       <typeAlias type="order.model.OrderDetail" alias="MyOrderDetail"/>
+       <typeAlias type="admin.model.Qa" alias="MyQa" />
+    </typeAliases>
+      
+   <mappers>
+      <mapper resource="mybatis/member.xml"></mapper>
+      <mapper resource="mybatis/seller.xml"></mapper>
+      <mapper resource="mybatis/admin.xml"></mapper>
+      <mapper resource="mybatis/hotel.xml"></mapper>
+      <mapper resource="mybatis/room.xml"/>
+      <mapper resource="mybatis/mainorder.xml"/>
+      <mapper resource="mybatis/orderdetail.xml"/>
+   </mappers>
+ 
+ </configuration>

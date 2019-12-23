@@ -14,8 +14,8 @@
   
   <update id="infoUpdate">
      update sellers set s_password=#{s_password}, s_phone=#{s_phone}, s_name=#{s_name}, s_comnumber=#{s_comnumber} where s_num like #{s_num}
-  
   </update>
+  
   <delete id="deleteThis">
      delete from sellers where s_num = #{s_num}
   </delete>

@@ -12,7 +12,7 @@
 	
 	<select id="info" resultType="MyMember">
 		select * from members
-		where m_email = #{m_email}
+		where m_num = #{m_num}
 	</select>
 
 	<insert id="registerMem">
@@ -22,11 +22,25 @@
 	
 	<delete id="delete">
 		delete members
-		where m_email = #{m_email}
+		where m_email = #{m_email} and m_password=#{m_password}
 	</delete>
 	
 	<update id="update">
 		update members set m_email=#{m_email}, m_password=#{m_password}, m_nickname=#{m_nickname}, m_name=#{m_name}, m_phone=#{m_phone}
+		where m_num=#{m_num}
+	</update>
+	
+	<select id="checkMail" resultType="MyMember">
+		select * from members
+		where m_email=#{m_email}
+	</select>
+
+	<update id="updatePw">
+		update members set m_password=#{m_password}
 		where m_email=#{m_email}
 	</update>
+	
+	<select id="getAllMembers" resultType="MyMember">
+		select * from members
+	</select>
 </mapper>
