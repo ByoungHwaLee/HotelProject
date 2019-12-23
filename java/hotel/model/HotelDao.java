@@ -59,6 +59,18 @@ public class HotelDao {
 		int cnt=sqlSessionTemplate.update(namespace+".updateHotel",hotel);
 		return cnt;
 	}
+
+
+	public void deleteHotel(int h_num) {
+		sqlSessionTemplate.delete(namespace+".deleteHotel", h_num);
+		
+	}
+	
+	public List<Hotel> getAllHotelList() {
+		List<Hotel> hotel = sqlSessionTemplate.selectList(namespace + ".getAllLists");
+		return hotel;
+	}
+
 	
 
 }

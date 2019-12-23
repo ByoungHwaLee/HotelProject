@@ -24,4 +24,32 @@ public class RoomDao {
 		List<Room> roomList=sst.selectList(namespace+".getRoomList",hotel);
 		return roomList;
 	}
+
+	public int updateRoom(Room room) {
+		int cnt=sst.update(namespace+".updateRoom",room);
+		return cnt;
+	}
+
+	public int deleteRoom(int r_num) {
+		int cnt=sst.delete(namespace+".deleteRoom",r_num);
+		return cnt;
+	}
+
+	public int deleteHotelRoom(int h_num) {
+		int cnt=sst.delete(namespace+".deleteHotelRoom",h_num);
+		return cnt;
+		
+	}
+
+	public List<Room> getRoomAllList() {
+		List<Room> room =sst.selectList(namespace +".getRoomAllList");
+		return room;
+	}
+
+	public Room getRoom(int r_num) {
+		Room room=sst.selectOne(namespace+".getRoom",r_num);
+		return room;
+	}
+
+	
 }

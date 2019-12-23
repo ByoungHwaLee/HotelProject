@@ -13,7 +13,7 @@ public class Search {
 		
 	public Search() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Search(String area, String checkin, String checkout, String adult, String child, String room) {
