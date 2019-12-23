@@ -16,6 +16,7 @@ public class Room {
 	private int r_person;
 	private String r_breakfast;
 	private int r_stock;
+	
 	private String originHname;
 	
 	public Room() {
