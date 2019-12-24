@@ -32,7 +32,7 @@ public class HotelDetailController {
 	private MainOrderDao moDao;
 	
 	@RequestMapping(command)
-	public String hotelDetail(@RequestParam("h_num") int h_num,Search search,Model model) {
+	public String hotelDetail(@RequestParam("h_num") int h_num,Search search,Model model,@RequestParam(value="scroll",required=false) String scroll) {
 		
 		Hotel hotel=hotelDao.getHotelOne(h_num);
 		List<Room> rooms=roomDao.getRoomList(hotel);
@@ -50,11 +50,12 @@ public class HotelDetailController {
 		}
 		
 		///////////////////////////////////////////////////////////	
-	      
+	    
 
 		model.addAttribute("search",search);
 		model.addAttribute("hotel",hotel);
 		model.addAttribute("rooms",rooms);
+		model.addAttribute("scroll", scroll);
 		
 		
 		return getPage;
