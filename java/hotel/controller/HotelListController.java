@@ -43,6 +43,10 @@ public class HotelListController {
 			String[] filters=search.getFilterType().split(",");
 			search.setFilters(filters);
 		}
+		if(search.getAdult().equals("0")) {
+			search.setAdult("1");
+			System.out.println(search.getAdult());
+		}
 		model.addAttribute("search", search);
 			
 		List<Hotel> hotelList=hoDao.selectAll(search); 
