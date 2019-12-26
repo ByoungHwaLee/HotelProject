@@ -456,6 +456,7 @@ function getValidEnumValue(enumType, keyOrValue)
  **/
 function goToNextStep(wizard, options, state)
 {
+	
     return paginationClick(wizard, options, state, increaseCurrentIndexBy(state, 1));
 }
 
@@ -777,6 +778,8 @@ function paginationClick(wizard, options, state, index)
  * @event click
  * @param event {Object} An event object
  */
+
+
 function paginationClickHandler(event)
 {
     event.preventDefault();
@@ -786,6 +789,14 @@ function paginationClickHandler(event)
         options = getOptions(wizard),
         state = getState(wizard),
         href = anchor.attr("href");
+    
+            
+    
+    var h_name=$("input[name=h_name]").val();
+    var h_nation=$("input[name=h_nation").val();
+    var h_postcode=$('input[name=h_postcode').val();
+    var h_phone=$('input[name=h_phone').val();
+    
 
     switch (href.substring(href.lastIndexOf("#") + 1))
     {
@@ -798,9 +809,41 @@ function paginationClickHandler(event)
             break;
 
         case "next":
-            goToNextStep(wizard, options, state);
-            break;
+        	if(state.currentIndex===0){
 
+	        	if(h_name=="" || h_name==null){
+	        		$("span.h_name").show();
+	        		$("input[name=h_name]").keyup(function(){
+	        			$("span.h_name").hide();
+	        		})
+	        	}
+	        	else if(h_nation=="" || h_nation==null){
+	        		$("span.h_nation").show();
+	        		$("input[name=h_nation]").keyup(function(){
+	        			$("span.h_nation").hide();
+	        		})
+	        	} 
+	        	else if(h_postcode=="" || h_postcode==null){
+	        		$("span.h_postcode").show();
+	        		$("#postbtn").click(function(){
+	        			$("span.h_postcode").hide();
+	        		})
+	        	} 
+	        	else if(h_phone=="" || h_phone==null){  
+	        		$("span.h_phone").show();
+	        		$("input[name=h_phone]").keyup(function(){
+	        			$("span.h_phone").hide();
+	        		})
+	        	}
+	        	else{
+	        		goToNextStep(wizard, options, state);
+	        	}
+        	}else{
+        		goToNextStep(wizard, options, state);
+        		
+        	}
+        	break;
+  
         case "previous":
             goToPreviousStep(wizard, options, state);
             break;
@@ -1063,9 +1106,9 @@ function renderPagination(wizard, options, state)
             buttons += buttonTemplate.format("previous")+"role=\"menuitem\">"+options.labels.previous+"</a></li>";
         }
 
-        buttons += buttonTemplate.format("next")+"onclick=\"validator()\" role=\"menuitem\">"+options.labels.next+"</a></li>";
+        buttons += buttonTemplate.format("next")+"onclick=\"validation()\" role=\"menuitem\">"+options.labels.next+"</a></li>";  
   
-        if (options.enableFinishButton)  
+        if (options.enableFinishButton)          
         {
             buttons += buttonTemplate.format("finish")+"onclick=\"submitHotel()\" role=\"menuitem\">"+options.labels.finish+"</a></li>";
         }
@@ -1080,7 +1123,7 @@ function renderPagination(wizard, options, state)
 
         refreshPagination(wizard, options, state);
         loadAsyncContent(wizard, options, state);
-    }
+    }   
 }
 
 /**
@@ -1258,14 +1301,53 @@ function stepClickHandler(event)
         options = getOptions(wizard),
         state = getState(wizard),
         oldIndex = state.currentIndex;
+    
+    var h_name=$("input[name=h_name]").val();
+    var h_nation=$("input[name=h_nation").val();
+    var h_postcode=$('input[name=h_postcode').val();
+    var h_phone=$('input[name=h_phone').val();
+   
 
     if (anchor.parent().is(":not(.disabled):not(.current)"))
     {
         var href = anchor.attr("href"),
             position = parseInt(href.substring(href.lastIndexOf("-") + 1), 0);
+        
+        if(state.currentIndex===0){
 
-        goToStep(wizard, options, state, position);
-    }
+        	if(h_name=="" || h_name==null){
+        		$("span.h_name").show();
+        		$("input[name=h_name]").keyup(function(){
+        			$("span.h_name").hide();
+        		})
+        	}
+        	else if(h_nation=="" || h_nation==null){
+        		$("span.h_nation").show();
+        		$("input[name=h_nation]").keyup(function(){
+        			$("span.h_nation").hide();
+        		})
+        	} 
+        	else if(h_postcode=="" || h_postcode==null){
+        		$("span.h_postcode").show();
+        		$("#postbtn").click(function(){
+        			$("span.h_postcode").hide();
+        		})
+        	} 
+        	else if(h_phone=="" || h_phone==null){  
+        		$("span.h_phone").show();
+        		$("input[name=h_phone]").keyup(function(){
+        			$("span.h_phone").hide();
+        		})
+        	}
+        	else{
+        		goToStep(wizard, options, state, position);
+        	}
+    	}else{
+    		goToStep(wizard, options, state, position);
+    		
+    	}  
+    }    
+
 
     // If nothing has changed
     if (oldIndex === state.currentIndex)
@@ -1895,8 +1977,12 @@ var defaults = $.fn.steps.defaults = {
      * @default function (event, currentIndex, newIndex) { return true; }
      * @for defaults
      **/
-    onStepChanging: function (event, currentIndex, newIndex) { return true; },
-
+    onStepChanging: function (event, currentIndex, newIndex) { 
+    	
+    	return true;
+    	
+    	 },
+    
     /**
      * Fires after the step has change. 
      *
