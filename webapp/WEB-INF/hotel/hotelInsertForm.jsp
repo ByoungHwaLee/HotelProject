@@ -52,32 +52,35 @@
 								<div class="form-holder">
 									<fieldset>
 										<legend>Hotel Name</legend>
-										<input type="text" class="form-control" name="h_name" placeholder="호텔 이름">
+										<input type="text" class="form-control" id="h_name" name="h_name" placeholder="호텔 이름">
 									</fieldset>
+										<span class="h_name" style="margin-left:5px"><small style='color:#DB0000'>호텔이름은 필수 항목입니다.</small></span>
 								</div>
 								<div class="form-holder">
 									<fieldset> 
 										<legend>Nation</legend>
-										<input type="text" class="form-control" name="h_nation" placeholder="국가">
+										<input type="text" class="form-control" id="h_nation" name="h_nation" placeholder="국가">
 									</fieldset>
+									<span class="h_nation" style="margin-left:5px"><small style='color:#DB0000'>국가는 필수 항목입니다.</small></span>
 								</div>
-							</div>
+							</div>   
 							<div class="form-row">
 								<div class="form-holder">
 									<fieldset>
 										<legend>Postcode</legend>
-										<input type="text" class="form-control" id="postcode" name="h_postcode" placeholder="우편번호" readonly="readonly">
+										<input type="text" class="form-control" id="h_postcode" name="h_postcode" placeholder="우편번호" readonly="readonly">
 									</fieldset>
+									<span class="h_postcode" style="margin-left:5px"><small style='color:#DB0000'>우편번호찾기를 해주세요.</small></span>
 								</div>
 								<div style="padding-top:17px">
-									<button type="button" class="btn btn-success" onclick="execDaumPostcode()">우편번호찾기</button>
+									<button id="postbtn" type="button" class="btn btn-success" onclick="execDaumPostcode()">우편번호찾기</button>
 								</div>
 							</div>  
 							<div class="form-row">
 						  		<div class="form-holder form-holder-2">
 									<fieldset>
 										<legend>Address</legend>
-										<input type="text" class="form-control" id="address" name="h_address1" placeholder="주소" readonly="readonly">
+										<input type="text" class="form-control" id="h_address1" name="h_address1" placeholder="주소" readonly="readonly">
 									</fieldset>
 								</div>
 							</div>
@@ -85,7 +88,7 @@
 								<div class="form-holder form-holder-2">
 									<fieldset>
 										<legend>AddressDetail</legend>
-										<input type="text" class="form-control" id="detailAddress" name="h_address2" placeholder="상세주소">  
+										<input type="text" class="form-control" id="h_address2" name="h_address2" placeholder="상세주소">  
 									</fieldset>
 								</div>
 							</div>
@@ -141,12 +144,12 @@
 							                }
 							
 							                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-							                document.getElementById('postcode').value = data.zonecode;
-							                document.getElementById("address").value = addr;
+							                document.getElementById('h_postcode').value = data.zonecode;
+							                document.getElementById("h_address1").value = addr;
 							           
 							                        
 							                // 커서를 상세주소 필드로 이동한다.
-							                document.getElementById("detailAddress").focus();
+							                document.getElementById("h_address2").focus();
 							                
 							
 							                // iframe을 넣은 element를 안보이게 한다.
@@ -209,15 +212,16 @@
 								<div class="form-holder form-holder-2">
 									<fieldset>
 										<legend>Hotel Phone</legend>
-										<input type="text" class="form-control" name="h_phone" placeholder="호텔전화번호"> 
+										<input type="text" class="form-control" id="h_phone" name="h_phone" placeholder="호텔전화번호"> 
 									</fieldset>
-								</div>
+									<span class="h_phone" style="margin-left:5px"><small style='color:#DB0000'>호텔 전화번호는 필수 항목입니다.</small></span>
+								</div>   
 							</div>
 							<div class="form-row">
 								<div class="form-holder form-holder-2">
 									<fieldset>
 										<legend>Hotel Url</legend>
-										<input type="text" class="form-control" name="h_hotel_url" placeholder="호텔사이트주소">
+										<input type="text" class="form-control" id="h_hotel_url" name="h_hotel_url" placeholder="호텔사이트주소">
 									</fieldset>
 								</div>
 							</div>
@@ -238,8 +242,9 @@
 									<div class="form-holder form-holder-2">
 										<fieldset>
 											<legend>Support Language</legend>
-											<input type="text" class="form-control" placeholder="한국어,영어,중국어" name="h_language">
+											<input type="text" class="form-control" id="h_language" placeholder="한국어,영어,중국어" name="h_language">
 										</fieldset>
+										
 									</div>	
 								</div>
 								<div class="form-row">
@@ -510,34 +515,39 @@
 				                		<div class="form-holder">
 				                			<fieldset>
 												<legend>Room Type</legend>
-												<input type="text" class="form-control" name="type" placeholder="객실 유형(일반,디럭스..)" >
-											</fieldset>			                			
+												<input type="text" class="form-control" id="type" name="type" placeholder="객실 유형(일반,디럭스..)" >
+											</fieldset>
+											<div></div>        			
 				                		</div>
 				                		<div class="form-holder">
 											<fieldset> 
 												<legend>Room Price</legend>
-												<input type="text" class="form-control" name="price" placeholder="객실 가격(1박)">
+												<input type="text" class="form-control" id="price" name="price" placeholder="객실 가격(1박)">
 											</fieldset>
+										 	<div></div>
 										</div>
 				                	</div>
 				                	<div class="form-row">
 				                		<div class="form-holder">
 											<fieldset>   
 												<legend>Person</legend>
-												<input type="text" class="form-control" name="person" placeholder="정원(4)">
+												<input type="text" class="form-control" id="person" name="person" placeholder="정원(4)">
 											</fieldset>
+											<div></div>
 										</div>
 										<div class="form-holder">
 											<fieldset>
 												<legend>Breakfast</legend>
-												<input type="text" class="form-control" name="breakfast" placeholder="유/무">  
+												<input type="text" class="form-control" id="breakfast" name="breakfast" placeholder="유/무">  
 											</fieldset>
+											<div></div>
 										</div>
 										<div class="form-holder">
 											<fieldset>
 												<legend>Count</legend>
-												<input type="text" class="form-control" name="stock" placeholder="객실수">
+												<input type="text" class="form-control" id="stock" name="stock" placeholder="객실수">
 											</fieldset>
+											<div></div>
 										</div>
 										<div class="form-holder">
 											<div style="padding-top:17px">
@@ -556,13 +566,15 @@
 						                			'<fieldset>'+
 														'<legend>Room Type</legend>'+
 														'<input type="text" class="form-control" name="type" placeholder="객실 유형(일반,디럭스..)">'+
-													'</fieldset>'+			                			
+													'</fieldset>'+
+													'<div></div>' +   
 						                		'</div>'+
 						                		'<div class="form-holder">'+
 													'<fieldset>'+
 														'<legend>Room Price</legend>'+
 														'<input type="text" class="form-control" name="price" placeholder="객실 가격(1박)">'+
 													'</fieldset>'+
+													'<div></div>' +  
 												'</div>'+
 						                	'</div>'+
 						                	'<div class="form-row">'+
@@ -571,18 +583,21 @@
 														'<legend>Person</legend>'+
 														'<input type="text" class="form-control" name="person" placeholder="정원(4)">'+
 													'</fieldset>'+
+													'<div></div>' +  
 												'</div>'+
 												'<div class="form-holder">'+
 													'<fieldset>'+
 														'<legend>Breakfast</legend>'+
 														'<input type="text" class="form-control" name="breakfast" placeholder="유/무">'+
 													'</fieldset>'+
+													'<div></div>' +  
 												'</div>'+
 												'<div class="form-holder">'+
 													'<fieldset>'+
 														'<legend>Count</legend>'+
 														'<input type="text" class="form-control" name="stock" placeholder="객실수">'+
 													'</fieldset>'+
+													'<div></div>' +  
 												'</div>'+
 												'<div class="form-holder">'+
 													'<div style="padding-top:17px">'+
@@ -598,16 +613,17 @@
 			            			$(this).closest("div#one-of-rooms").remove();
 			            		});  
 		                
-			                 }); 
+			                 });   
 			                </script>	
 			                	<div class="form-row">
 									<div class="form-holder">
 										<fieldset>
 											<legend>Total RoomNumber</legend>
-											<input type="text" class="form-control" name="h_room_num" placeholder="Number of Rooms" value=0>
+											<input type="text" class="form-control" name="h_room_num" placeholder="Number of Rooms">
 										</fieldset>
+										<div></div>
 									</div>
-								</div>
+								</div>  
 							</div>
 			            </section>
 					</div>
